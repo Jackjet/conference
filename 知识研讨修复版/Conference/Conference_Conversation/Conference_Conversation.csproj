@@ -1,0 +1,264 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4A0B0E75-81BE-4121-A522-1A033FFE26B4}</ProjectGuid>
+    <OutputType>library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Conference_Conversation</RootNamespace>
+    <AssemblyName>Conference_Conversation</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Expression.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Lync.Controls">
+      <HintPath>..\ConferenceCommon\File\Dll\Microsoft.Lync.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Lync.Controls.Framework">
+      <HintPath>..\ConferenceCommon\File\Dll\Microsoft.Lync.Controls.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Lync.Model">
+      <HintPath>..\ConferenceCommon\File\Dll\Microsoft.Lync.Model.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Lync.Utilities">
+      <HintPath>..\ConferenceCommon\File\Dll\Microsoft.Lync.Utilities.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Uc">
+      <HintPath>..\ConferenceCommon\File\Dll\Microsoft.Office.Uc.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationItem.xaml.cs">
+      <DependentUpon>ApplicationItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationWindow.xaml.cs">
+      <DependentUpon>ApplicationWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Common\BigEnterScreen.cs" />
+    <Compile Include="Common\LyncHelper_AutoMationBase.cs" />
+    <Compile Include="Common\ConversationCodeEnterEntity.cs" />
+    <Compile Include="Common\LyncHelper.cs" />
+    <Compile Include="Common\LyncHelper_AutoMation.cs" />
+    <Compile Include="Common\LyncHelper_Enviroment.cs" />
+    <Compile Include="Common\LyncHelper_LyncClient.cs" />
+    <Compile Include="Common\OldSolution.cs" />
+    <Compile Include="Common\ResourceType.cs" />
+    <Compile Include="Common\SharingType.cs" />
+    <Compile Include="Common\ShowType.cs" />
+    <Compile Include="Control\ConversationHidenView.xaml.cs">
+      <DependentUpon>ConversationHidenView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Control\NetWork_View.xaml.cs">
+      <DependentUpon>NetWork_View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Control\ShowSelfDeskTopView.xaml.cs">
+      <DependentUpon>ShowSelfDeskTopView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ConversationHost.xaml.cs">
+      <DependentUpon>ConversationHost.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ConversationM.xaml.cs">
+      <DependentUpon>ConversationM.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ConversationM_Part.cs" />
+    <Compile Include="ConversationResourceItem.xaml.cs">
+      <DependentUpon>ConversationResourceItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ConversationResourceWindow.xaml.cs">
+      <DependentUpon>ConversationResourceWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="KeyControlView.xaml.cs">
+      <DependentUpon>KeyControlView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Partical_View.xaml.cs">
+      <DependentUpon>Partical_View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Partical_View_Item.xaml.cs">
+      <DependentUpon>Partical_View_Item.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="SharingPanel.xaml.cs">
+      <DependentUpon>SharingPanel.xaml</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\btnFullScreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\btnFullScreen2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\DeskShare.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\MobilePhone.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Postil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\PPTLeft.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\PPTRight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\projection.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\touying.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\U_Resource.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Whiteboard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="ApplicationItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ApplicationWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Control\ConversationHidenView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Control\NetWork_View.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Control\ShowSelfDeskTopView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ConversationHost.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ConversationM.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ConversationResourceItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ConversationResourceWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="KeyControlView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Partical_View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Partical_View_Item.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SharingPanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ConferenceCommon\ConferenceCommon.csproj">
+      <Project>{fae862fb-9cdb-4d93-af95-8728ea8a9fd8}</Project>
+      <Name>ConferenceCommon</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\ppt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\btnAudio.png" />
+    <Resource Include="Image\btnVideo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\AVDelete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Conversationrepair.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\LocalV.png" />
+    <Resource Include="Image\ShareV.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

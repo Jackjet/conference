@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="RevertService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="BasicHttpBinding_IRevert2_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <http:NtlmAuthentication xmlns:http="http://schemas.microsoft.com/ws/06/2004/policy/http" />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://192.168.1.205/_vti_bin/Revert.svc/mex?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://192.168.1.205/_vti_bin/Revert.svc/mex?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IRevert_Revert_InputMessage">
+    <wsdl:part name="parameters" element="tns:Revert" />
+  </wsdl:message>
+  <wsdl:message name="IRevert_Revert_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RevertResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRevert_GetUserlist_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserlist" />
+  </wsdl:message>
+  <wsdl:message name="IRevert_GetUserlist_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserlistResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRevert_GetRelation_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRelation" />
+  </wsdl:message>
+  <wsdl:message name="IRevert_GetRelation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRelationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRevert_TestSharepoint_InputMessage">
+    <wsdl:part name="parameters" element="tns:TestSharepoint" />
+  </wsdl:message>
+  <wsdl:message name="IRevert_TestSharepoint_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TestSharepointResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRevert_GetDownLodeFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDownLodeFile" />
+  </wsdl:message>
+  <wsdl:message name="IRevert_GetDownLodeFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDownLodeFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRevert_FileUpload_InputMessage">
+    <wsdl:part name="parameters" element="tns:FileUpload" />
+  </wsdl:message>
+  <wsdl:message name="IRevert_FileUpload_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FileUploadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRevert_GetOrderInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrderInfo" />
+  </wsdl:message>
+  <wsdl:message name="IRevert_GetOrderInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrderInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRevert_GetMeetInfoNow_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMeetInfoNow" />
+  </wsdl:message>
+  <wsdl:message name="IRevert_GetMeetInfoNow_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMeetInfoNowResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRevert_GetMeetInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMeetInfo" />
+  </wsdl:message>
+  <wsdl:message name="IRevert_GetMeetInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMeetInfoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IRevert">
+    <wsdl:operation name="Revert">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRevert/Revert" message="tns:IRevert_Revert_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRevert/RevertResponse" message="tns:IRevert_Revert_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserlist">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRevert/GetUserlist" message="tns:IRevert_GetUserlist_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRevert/GetUserlistResponse" message="tns:IRevert_GetUserlist_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRelation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRevert/GetRelation" message="tns:IRevert_GetRelation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRevert/GetRelationResponse" message="tns:IRevert_GetRelation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TestSharepoint">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRevert/TestSharepoint" message="tns:IRevert_TestSharepoint_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRevert/TestSharepointResponse" message="tns:IRevert_TestSharepoint_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDownLodeFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRevert/GetDownLodeFile" message="tns:IRevert_GetDownLodeFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRevert/GetDownLodeFileResponse" message="tns:IRevert_GetDownLodeFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FileUpload">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRevert/FileUpload" message="tns:IRevert_FileUpload_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRevert/FileUploadResponse" message="tns:IRevert_FileUpload_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRevert/GetOrderInfo" message="tns:IRevert_GetOrderInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRevert/GetOrderInfoResponse" message="tns:IRevert_GetOrderInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMeetInfoNow">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRevert/GetMeetInfoNow" message="tns:IRevert_GetMeetInfoNow_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRevert/GetMeetInfoNowResponse" message="tns:IRevert_GetMeetInfoNow_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMeetInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRevert/GetMeetInfo" message="tns:IRevert_GetMeetInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRevert/GetMeetInfoResponse" message="tns:IRevert_GetMeetInfo_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IRevert" type="tns:IRevert">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Revert">
+      <soap:operation soapAction="http://tempuri.org/IRevert/Revert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserlist">
+      <soap:operation soapAction="http://tempuri.org/IRevert/GetUserlist" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRelation">
+      <soap:operation soapAction="http://tempuri.org/IRevert/GetRelation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TestSharepoint">
+      <soap:operation soapAction="http://tempuri.org/IRevert/TestSharepoint" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDownLodeFile">
+      <soap:operation soapAction="http://tempuri.org/IRevert/GetDownLodeFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FileUpload">
+      <soap:operation soapAction="http://tempuri.org/IRevert/FileUpload" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderInfo">
+      <soap:operation soapAction="http://tempuri.org/IRevert/GetOrderInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMeetInfoNow">
+      <soap:operation soapAction="http://tempuri.org/IRevert/GetMeetInfoNow" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMeetInfo">
+      <soap:operation soapAction="http://tempuri.org/IRevert/GetMeetInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IRevert1" type="tns:IRevert">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Revert">
+      <soap:operation soapAction="http://tempuri.org/IRevert/Revert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserlist">
+      <soap:operation soapAction="http://tempuri.org/IRevert/GetUserlist" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRelation">
+      <soap:operation soapAction="http://tempuri.org/IRevert/GetRelation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TestSharepoint">
+      <soap:operation soapAction="http://tempuri.org/IRevert/TestSharepoint" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDownLodeFile">
+      <soap:operation soapAction="http://tempuri.org/IRevert/GetDownLodeFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FileUpload">
+      <soap:operation soapAction="http://tempuri.org/IRevert/FileUpload" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderInfo">
+      <soap:operation soapAction="http://tempuri.org/IRevert/GetOrderInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMeetInfoNow">
+      <soap:operation soapAction="http://tempuri.org/IRevert/GetMeetInfoNow" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMeetInfo">
+      <soap:operation soapAction="http://tempuri.org/IRevert/GetMeetInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IRevert2" type="tns:IRevert">
+    <wsp:PolicyReference URI="#BasicHttpBinding_IRevert2_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Revert">
+      <soap:operation soapAction="http://tempuri.org/IRevert/Revert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserlist">
+      <soap:operation soapAction="http://tempuri.org/IRevert/GetUserlist" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRelation">
+      <soap:operation soapAction="http://tempuri.org/IRevert/GetRelation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TestSharepoint">
+      <soap:operation soapAction="http://tempuri.org/IRevert/TestSharepoint" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDownLodeFile">
+      <soap:operation soapAction="http://tempuri.org/IRevert/GetDownLodeFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FileUpload">
+      <soap:operation soapAction="http://tempuri.org/IRevert/FileUpload" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderInfo">
+      <soap:operation soapAction="http://tempuri.org/IRevert/GetOrderInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMeetInfoNow">
+      <soap:operation soapAction="http://tempuri.org/IRevert/GetMeetInfoNow" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMeetInfo">
+      <soap:operation soapAction="http://tempuri.org/IRevert/GetMeetInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="RevertService">
+    <wsdl:port name="BasicHttpBinding_IRevert" binding="tns:BasicHttpBinding_IRevert">
+      <soap:address location="http://192.168.1.205/_vti_bin/Revert.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,33 @@
+﻿<Window x:Class="Conference.View.Space.InputMessageWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+       WindowStyle="None" AllowsTransparency="True"  ShowInTaskbar="False"
+        WindowStartupLocation="CenterScreen"
+       Width="240" Height="110" 
+        FontFamily="微软雅黑"     Foreground="{StaticResource NormalColorBrush}"
+        BorderBrush="Silver" BorderThickness="3">
+    <Grid >
+        <Grid.Background>
+            <SolidColorBrush Color="White" Opacity="0.8"/>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
+            <RowDefinition Height="35"/>           
+        </Grid.RowDefinitions>
+        <Border   BorderBrush="Black" BorderThickness="0,0,0,1">
+            <Border.Background>
+                <LinearGradientBrush EndPoint="0.5,1" Opacity="0.2" StartPoint="0.5,0">
+                    <GradientStop Color="White" Offset="0"/>
+                    <GradientStop Color="#FFC8C8C8" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+            <TextBlock Margin="5,0,0,0" Foreground="{StaticResource NormalColorBrush}" Text="请输入文件夹名称" FontSize="14" VerticalAlignment="Center"/>
+        </Border>
+        <TextBox x:Name="txtInput" Grid.Row="1"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Row="2">
+            <Button Content=" 确 认 " Foreground="{StaticResource NormalColorBrush}" Margin="0,0,3,0" Click="Button_Click"/>
+            <Button Content=" 取 消 " Foreground="{StaticResource NormalColorBrush}" Margin="0,0,3,0" Click="Button_Click_1"/>
+        </StackPanel>
+    </Grid>    
+</Window>

@@ -1,0 +1,299 @@
+﻿<Conference_Tree:TreeView_ContentBase xmlns:WPFControl="clr-namespace:ConferenceCommon.WPFControl;assembly=ConferenceCommon"  x:Class="Conference_Tree.SearchFileView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+                                      xmlns:Microsoft_Windows_Themes ="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero"
+                                      xmlns:Conference_Tree="clr-namespace:Conference_Tree"   
+                                   
+             d:DesignHeight="300" d:DesignWidth="400">
+    <Conference_Tree:TreeView_ContentBase.Resources>
+
+        <!--蓝色按钮背景-->
+        <ImageBrush x:Key="brush_Blue" ImageSource="pack://application:,,,/Image/blue.png"/>
+        <!--蓝色按钮背景-->
+        <ImageBrush x:Key="brush_Orange" ImageSource="pack://application:,,,/Image/Orange.png"/>
+
+        <!--字体颜色-->
+        <SolidColorBrush x:Key="GreenColorBrush" Color="LightGreen"/>
+        <SolidColorBrush x:Key="NormalColorBrush" Color="#4d4d4d"/>
+        <!--标题背景-->
+        <SolidColorBrush x:Key="headColor" Color="#f2f2f2" />
+
+        <!--图片按钮(文字居中,带弧度)-->
+        <Style x:Key="btnStyleH3" TargetType="{x:Type Button}">
+            <Setter Property="FontSize" Value="13.6"/>
+            <Setter Property="FontFamily" Value="微软雅黑"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Border CornerRadius="10" BorderThickness="1" BorderBrush="Silver" Background="{TemplateBinding Background}">
+                                <!--<Border.Effect>
+                                    <DropShadowEffect Direction="272" Color="Gray" ShadowDepth="3"/>
+                                </Border.Effect>-->
+                            </Border>
+                            <Border  >
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="ColumnHeaderGripperStyle" TargetType="{x:Type Thumb}">
+            <Setter Property="Width" Value="0.5"/>
+            <Setter Property="Background" Value="#e5e5e5"/>
+            <Setter Property="Cursor" Value="SizeWE"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Thumb}">
+                        <Border  Background="{TemplateBinding Background}"   Padding="{TemplateBinding Padding}"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!--标题样式-->
+        <Style   TargetType="{x:Type DataGridColumnHeader}">
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Foreground" Value="{StaticResource NormalColorBrush}"/>
+            <Setter Property="ContentTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding}" TextWrapping="Wrap" FontFamily="微软雅黑" FontSize="13.5" TextAlignment="Center"  HorizontalAlignment="Center"/>
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="Background" Value="{StaticResource headColor}">
+            </Setter>
+            <Setter Property="Height" Value="34"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type DataGridColumnHeader}">
+                        <Border  BorderBrush="#e5e5e5" BorderThickness="0,0,0,1">
+                            <Grid  >
+                                <Microsoft_Windows_Themes:DataGridHeaderBorder   BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" IsClickable="{TemplateBinding CanUserSort}" IsPressed="{TemplateBinding IsPressed}" IsHovered="{TemplateBinding IsMouseOver}" Padding="{TemplateBinding Padding}" SortDirection="{TemplateBinding SortDirection}" SeparatorBrush="{TemplateBinding SeparatorBrush}" SeparatorVisibility="{TemplateBinding SeparatorVisibility}">
+                                    <ContentPresenter  HorizontalAlignment="Center" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                    <!--<TextBlock Text="{Binding}" HorizontalAlignment="Center"  VerticalAlignment="Center"/>-->
+                                </Microsoft_Windows_Themes:DataGridHeaderBorder>
+                                <Thumb  x:Name="PART_LeftHeaderGripper"  HorizontalAlignment="Left" Style="{StaticResource ColumnHeaderGripperStyle}"/>
+                                <Thumb x:Name="PART_RightHeaderGripper" HorizontalAlignment="Right" Style="{StaticResource ColumnHeaderGripperStyle}"/>
+
+                            </Grid>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+        <Style x:Key="rowStyle" TargetType="{x:Type DataGridRow}">
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" >
+                        <Setter.Value>
+                            <!--<LinearGradientBrush  Opacity="0.5" EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="white" Offset="0.008"/>
+                                <GradientStop Color="LightGreen" Offset="0.502"/>
+                                <GradientStop Color="LightGreen" Offset="1"/>
+                            </LinearGradientBrush>-->
+                            <SolidColorBrush Color="#ebf9ff" Opacity="0.5"/>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+                <Trigger Property="IsSelected" Value="True">
+                    <Setter Property="Background" >
+                        <Setter.Value>
+                            <!--<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="white" Offset="0.008"/>
+                                <GradientStop Color="LightGreen" Offset="0.502"/>
+                                <GradientStop Color="LightGreen" Offset="1"/>
+                            </LinearGradientBrush>-->
+                            <SolidColorBrush Color="#ebf9ff"/>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+            <Setter Property="FontSize" Value="13.5"/>
+            <Setter Property="MinHeight" Value="53"/>
+            <Setter Property="Padding" Value="0,5,0,5"/>
+            <Setter Property="BorderBrush" Value="#e5e5e5"/>
+            <Setter Property="BorderThickness" Value="0,0,0,1"/>
+            <Setter Property="SnapsToDevicePixels" Value="true"/>
+            <Setter Property="Validation.ErrorTemplate" Value="{x:Null}"/>
+            <!--<Setter Property="ValidationErrorTemplate">
+            <Setter.Value>
+                <ControlTemplate>
+                    <TextBlock Foreground="Red" Margin="2,0,0,0" Text="!" VerticalAlignment="Center"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>-->
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type DataGridRow}">
+                        <Border x:Name="DGR_Border"   BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                            <SelectiveScrollingGrid>
+                                <SelectiveScrollingGrid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </SelectiveScrollingGrid.ColumnDefinitions>
+                                <SelectiveScrollingGrid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="Auto"/>
+                                </SelectiveScrollingGrid.RowDefinitions>
+                                <DataGridCellsPresenter Grid.Column="1"  ItemsPanel="{TemplateBinding ItemsPanel}" />
+                                <DataGridDetailsPresenter Grid.Column="1" Grid.Row="1" SelectiveScrollingGrid.SelectiveScrollingOrientation="{Binding AreRowDetailsFrozen, ConverterParameter={x:Static SelectiveScrollingOrientation.Vertical}, Converter={x:Static DataGrid.RowDetailsScrollingConverter}, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" Visibility="{TemplateBinding DetailsVisibility}"/>
+                            </SelectiveScrollingGrid>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!--单元格样式-->
+        <SolidColorBrush x:Key="{x:Static DataGrid.FocusBorderBrushKey}" Color="#FF000000"/>
+        <Style x:Key="cellStyle" TargetType="{x:Type DataGridCell}">
+            <Setter Property="BorderThickness" Value="1,0,0,0"/>
+            <Setter Property="BorderBrush" Value="#e5e5e5"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="{StaticResource  NormalColorBrush}"/>
+            <Setter Property="Margin" Value="0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type DataGridCell}">
+                        <Border  BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                            <ContentPresenter  VerticalAlignment="Center" HorizontalAlignment="Stretch" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <!--<Style.Triggers>
+                <Trigger Property="IsSelected" Value="True">
+                    <Setter Property="Foreground" Value="Black"/>
+                </Trigger>
+            </Style.Triggers>-->
+        </Style>
+    </Conference_Tree:TreeView_ContentBase.Resources>
+    <Grid>
+        <Border Grid.Row="1" Margin="4" BorderBrush="Silver" BorderThickness="1">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="35"/>
+                </Grid.RowDefinitions>
+                <Border Grid.Row="0" BorderThickness="0,0,0,0.5" BorderBrush="Black">
+                    <Grid  Background="White">
+                        <StackPanel Orientation="Horizontal" >
+                            <Button   Width="50" Height="30" Visibility="{Binding CollapsedVisibility}" x:Name="btnViewChange" Background="{StaticResource brush_Orange}" Foreground="White" Content="收缩" Style="{StaticResource btnStyleH3}"  Margin="0,0,5,0">
+
+                            </Button>
+                            <TextBlock Text=" 文 件 搜 索 "  Foreground="#FF005C83" VerticalAlignment="Center" FontFamily="微软雅黑" FontSize="15" HorizontalAlignment="Left" Margin="5,0"/>
+                            
+                        </StackPanel>
+                        <StackPanel  HorizontalAlignment="Right" Orientation="Horizontal" VerticalAlignment="Center"  >
+                            <Button   Visibility="{Binding ExpanderVisibility}" Width="50" Height="30" x:Name="btnViewChange_Expander" Background="{StaticResource brush_Orange}" Foreground="White" Content="展开" Style="{StaticResource btnStyleH3}"  Margin="5,0,0,0">
+
+                            </Button>
+                            <Button Content=" 预览 " Visibility="{Binding View_Data_ShowVisibility}" Height="25"  Background="{StaticResource brush_Blue}" Foreground="White" x:Name="btnView"  Margin="3,0,0,0" Width="65" Style="{StaticResource btnStyleH3}">
+                            </Button>
+                            <Button x:Name="btnBack" Visibility="{Binding View_File_ShowVisibility}" Content=" 返回 " Height="25" Width="45" Background="{StaticResource brush_Blue}" Foreground="White"   Style="{StaticResource btnStyleH3}" Margin="0,0,3,0" />
+
+                            <ComboBox SelectedIndex="2" Visibility="{Binding View_File_ShowVisibility}" x:Name="cmbFileSizeChanged" Width="75">
+                                <ComboBox.Resources>
+                                    <Style TargetType="ComboBoxItem">
+                                        <Style.Setters>
+                                            <Setter Property="HorizontalAlignment" Value="Right"/>
+                                            <Setter Property="Height" Value="28"/>
+                                            <Setter Property="Margin" Value="0,3,3,-3"/>
+                                        </Style.Setters>
+                                    </Style>
+                                </ComboBox.Resources>
+                                <ComboBoxItem>50 %</ComboBoxItem>
+                                <ComboBoxItem >75 %</ComboBoxItem>
+                                <ComboBoxItem >100 %</ComboBoxItem>
+                                <ComboBoxItem >125 %</ComboBoxItem>
+                                <ComboBoxItem >150 %</ComboBoxItem>
+                                <ComboBoxItem >200 %</ComboBoxItem>
+                            </ComboBox>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+                <Grid Grid.Row="1" Visibility="{Binding View_Data_ShowVisibility}">
+                    <DataGrid GridLinesVisibility="None"   BorderBrush="#e5e5e5" AllowDrop="False" BorderThickness="0,1,1,1" x:Name="datagrid" Grid.Row="1"     RowStyle="{StaticResource rowStyle}" CellStyle="{StaticResource cellStyle}"        SelectionMode="Single"  VerticalGridLinesBrush="Transparent"      IsReadOnly="True"    CanUserSortColumns="False" CanUserReorderColumns="False"    AutoGenerateColumns="false">
+                        <DataGrid.Columns>
+                            <DataGridTemplateColumn     Header=" 文 档 名 称 " >
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate >
+                                        <Grid >
+                                            <TextBlock TextWrapping="Wrap" MaxWidth="150" Margin="10,0" HorizontalAlignment="Center" Text="{Binding Title}"/>
+                                        </Grid>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTemplateColumn     Header=" 文 档 类 型 " >
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate >
+                                        <Grid >
+                                            <TextBlock Margin="10,0" HorizontalAlignment="Center" Text="{Binding FileType}"/>
+                                        </Grid>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTemplateColumn   Header=" 作 者 " >
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Grid>
+                                            <TextBlock Margin="10,0" TextWrapping="Wrap" HorizontalAlignment="Center"  Text="{Binding Author}"/>
+                                        </Grid>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTemplateColumn   Header=" 创 建 时 间 " >
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Grid >
+                                            <TextBlock Margin="10,0" HorizontalAlignment="Center"  Text="{Binding Write}"/>
+                                        </Grid>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>                                                                            
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+                <Grid Grid.Row="1" Visibility="{Binding View_File_ShowVisibility}">
+                    <Border x:Name="borContent"     />         
+                </Grid>
+
+                <Border Background="White" BorderBrush="Silver" BorderThickness="0,1,0,0" Grid.Row="2" Visibility="{Binding ConferenceCommentCommandVisibility}" >
+                    <Grid>                      
+                        <StackPanel   Orientation="Horizontal" Margin="5,3" HorizontalAlignment="Right" >
+                            <ProgressBar Visibility="Collapsed" x:Name="downLoadProgress" Maximum="100"  Width="120" Height="20"  HorizontalAlignment="Right"  />
+                            <Button Content=" 下 载 "  Background="{StaticResource brush_Blue}" Foreground="White" x:Name="btnDownLoad"  Margin="3,0,0,0" Width="65" Style="{StaticResource btnStyleH3}">
+                            </Button>
+                            <Button Content=" 推 送 "  Background="{StaticResource brush_Blue}" Foreground="White" x:Name="btnFileSend"  Margin="3,0,0,0" Width="65" Style="{StaticResource btnStyleH3}">
+                            </Button>
+                            <Button Content=" 共 享 "  Background="{StaticResource brush_Blue}" Foreground="White" x:Name="btnFileShare"  Margin="3,0,0,0" Width="65" Style="{StaticResource btnStyleH3}">
+                            </Button>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+                <WPFControl:Loading Visibility="{Binding LoadingVisibility}" Grid.Row="1"/>
+            </Grid>
+        </Border>
+    </Grid>
+</Conference_Tree:TreeView_ContentBase>

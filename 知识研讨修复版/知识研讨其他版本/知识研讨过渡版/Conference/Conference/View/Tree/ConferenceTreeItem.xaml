@@ -1,0 +1,167 @@
+﻿<Common:UserControlBase xmlns:Common="clr-namespace:ConferenceCommon.WPFHelper;assembly=ConferenceCommon"   
+              x:Class="Conference.View.Tree.ConferenceTreeItem"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+               xmlns:Microsoft_Windows_Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero" 
+             mc:Ignorable="d"  
+     Background="Transparent"
+             >
+    <Common:UserControlBase.Resources>
+        <!--消息背景-->
+        <SolidColorBrush x:Key="brush_Message" Color="Snow"/>     
+    </Common:UserControlBase.Resources>
+    <Border  CornerRadius="3" SnapsToDevicePixels="true" Background="Transparent">
+        <DockPanel  Background="Transparent">
+            <Border x:Name="borTreeMain"  Background="Transparent"        DockPanel.Dock="Left"   MinWidth="0" MinHeight="0"   >
+                <Grid Background="Transparent">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid  Background="Transparent"  VerticalAlignment="Center" Margin="0,0,0,0"   SnapsToDevicePixels="False">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="30"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="30"/>
+                            <ColumnDefinition MinWidth="50"/>
+                            <!--<ColumnDefinition  Width="30"/>-->
+                            <ColumnDefinition Width="2"/>
+                        </Grid.ColumnDefinitions>
+
+                        <!--水平的线条-->
+                        <Border   Grid.Column="0"   Height="2"  Background="Silver"  Grid.Row="1" >
+
+                        </Border>
+
+                        <Border IsEnabled="{Binding IsLocked}"  x:Name="borSelected"  Visibility="{Binding SelectedVisibility}" Grid.ColumnSpan="5" Opacity="0.5" Grid.RowSpan="3"  Background="SkyBlue"/>
+
+                        <Border   Visibility="{Binding BorVisibility}"  Grid.ColumnSpan="5" Opacity="0.5" Grid.RowSpan="3" Background="Silver"/>
+
+                        <TextBox Grid.Column="1" Grid.Row="1" Width="1" Height="10"  x:Name="txtHelper"  />
+
+                        <StackPanel Visibility="{Binding OperationVisibility}" Margin="5,0" Background="Transparent"  Orientation="Horizontal" Grid.Column="1"  VerticalAlignment="Bottom">
+                            <TextBlock   Text="{Binding TitleOperationer}"/>
+                            <TextBlock   Foreground="{StaticResource NormalColorBrush}" Text="正在编辑 。。。"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal"   HorizontalAlignment="Left" Grid.Row="2" Grid.Column="1">
+                            <Button   VerticalAlignment="Top" Visibility="{Binding CommentCommandVisibility}" x:Name="btnComment" Content="弹出论点" Width="25" Height="24"    Background="{StaticResource brush_UpdatePersonImg}" Style="{StaticResource btnStyleH2}"/>
+                            <Button  VerticalAlignment="Top" Visibility="{Binding LinkCommandVisibility}" x:Name="btnLinkList" Content="弹出附件"  Width="25" Height="25"  Margin="5,0,0,0" Background="{StaticResource brush_Link}" Style="{StaticResource btnStyleH2}"/>
+                            <Button  Template="{StaticResource InTemplate}" VerticalAlignment="Top" Width="25" Height="30"   Margin="5,0,0,0"  Visibility="{Binding UploadFileTipVisibility}"/>
+                        </StackPanel>
+                        <Border  x:Name="borControlPanel" Grid.Column="1" Grid.Row="1"  Margin="0,5,10,5"    >
+                            <Grid >
+
+                                <ScrollViewer VerticalScrollBarVisibility="Auto"  Margin="0,0,14,0" >
+                                    <Border Background="{StaticResource brush_Message}"  BorderThickness="1.5" BorderBrush="Silver">
+                                        <!--标题-->
+                                        <TextBox IsEnabled="{Binding IsLocked}"  FontFamily="黑体" FontSize="13.5" Margin="7" MaxHeight="50" FocusVisualStyle="{x:Null}" BorderThickness="0" BorderBrush="Transparent" Foreground="Black" Background="Transparent" MinWidth="120" MaxWidth="120" Style="{x:Null}" IsReadOnly="{Binding IsReadOnly}" ToolTip="请输入标题"  x:Name="txtTittle"  Text="{Binding ACA_Tittle}"  TextWrapping="Wrap"    VerticalAlignment="Center">
+                                        </TextBox>
+                                    </Border>
+                                </ScrollViewer>
+
+
+                                <Button IsEnabled="True" x:Name="btnExpander" Visibility="{Binding ExpanderVisibility}" Content="展开子节点"  Width="22" Height="22" HorizontalAlignment="Right"  Margin="15,-21,-10,-25" BorderBrush="Green" BorderThickness="1.4" Background="{StaticResource brush_fold}" Style="{StaticResource btnStyleH2X}"/>
+                                
+                                
+                            </Grid>
+                        </Border>
+
+
+                        <!--水平的线条-->
+                        <Border Grid.Column="1"  Visibility="Collapsed"  HorizontalAlignment="Right" Grid.ColumnSpan="1" Width="12" Height="2" Background="Silver"  Grid.Row="1" >
+
+                        </Border>
+
+                        <Grid  Visibility="Collapsed"  HorizontalAlignment="Center" Width="{Binding VoteAllLength}" Grid.Column="1" VerticalAlignment="Center" Grid.Row="2" Grid.ColumnSpan="2">
+                            <Border  Height="2" Width="{Binding YesVoteLength}"  HorizontalAlignment="Left" Background="#FF00EF0F"/>
+
+                            <Border  Height="2" Width="{Binding NoVoteLength}" HorizontalAlignment="Right" Background="#FFEF002C"/>
+                        </Grid>
+                        <Border Panel.ZIndex="100" ToolTip="右键快捷菜单" Grid.Row="1"  Visibility="Collapsed"   Grid.Column="3" Background="Transparent" >
+                            <Border.ContextMenu>
+                                <ContextMenu x:Name="cMnu" >
+                                    <MenuItem x:Name="menuItemDelete"  Header="删 除">
+                                        <MenuItem.Icon>
+                                            <Image Height="30" Source="pack://application:,,,/Image/View/Tree/btnAudioDelete.png"/>
+                                        </MenuItem.Icon>
+                                    </MenuItem>
+                                    <MenuItem  Header="清除选票" x:Name="menuItemAllVoteClear"  >
+                                        <MenuItem.Icon>
+                                            <Image Height="30" Source="pack://application:,,,/Image/View/Tree/VoteDelete.png"/>
+                                        </MenuItem.Icon>
+                                    </MenuItem>
+                                </ContextMenu>
+                            </Border.ContextMenu>
+                            <!--<Path  VerticalAlignment="Center"  Height="5"  Fill="Black" Data="M21.25,6.3329935E-07 C24.425637,4.3585896E-07 27,2.5743632 27,5.7500004 27,8.9256377 24.425637,11.5 21.25,11.5 18.074363,11.5 15.5,8.9256377 15.5,5.7500004 15.5,2.5743632 18.074363,4.3585896E-07 21.25,6.3329935E-07 z M36.75,0 C39.925637,4.3585896E-07 42.5,2.5743632 42.5,5.7500004 42.5,8.9256377 39.925637,11.5 36.75,11.5 33.574363,11.5 31,8.9256377 31,5.7500004 31,2.5743632 33.574363,4.3585896E-07 36.75,0 z M5.75,0 C8.9256382,4.3585896E-07 11.5,2.5743632 11.5,5.7500004 11.5,8.9256377 8.9256382,11.5 5.75,11.5 2.5743618,11.5 0,8.9256377 0,5.7500004 0,2.5743632 2.5743618,4.3585896E-07 5.75,0 z"   Stretch="Fill"  >
+                            </Path>-->
+
+                            <Border  Visibility="Collapsed"  CornerRadius="60" Height="23" Width="23"  BorderBrush="Silver" BorderThickness="0.5">
+                                <!--右侧功能图-->
+                                <Image   x:Name="imgAdd" Grid.Row="1" ToolTip="添加节点"     Cursor="Hand"  Grid.Column="2" Source="pack://application:,,,/Image/View/Tree/Enlarge.png"/>
+                            </Border>
+                        </Border>
+                    </Grid>
+
+                    <Border Visibility="{Binding VerticalLineVisibility}" Grid.ColumnSpan="{Binding LineColumnSpan}"  MinHeight="130"  BorderBrush="Silver"  BorderThickness="0,0,1,0" x:Name="borMain" HorizontalAlignment="Stretch" >
+
+                    </Border>
+                    <ScrollViewer Grid.Column="1"  VerticalScrollBarVisibility="Auto" Height="150"  Margin="0" Visibility="{Binding CommentVisibility}">
+                        <Border BorderThickness="1" BorderBrush="Silver"  >
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="20"/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <TextBlock VerticalAlignment="Center" Margin="5,0" Text=" 备 注 " >
+                                    <TextBlock.Background>
+                                        <SolidColorBrush Color="LightGray" Opacity="0.6"/>
+                                    </TextBlock.Background>
+                                </TextBlock>
+                                <TextBox Foreground="Black" IsEnabled="{Binding IsLocked}"  AcceptsReturn="True" Grid.Row="1" FontSize="13.5" FontFamily="黑体" x:Name="txtComment" Text="{Binding ACA_Comment}"   MinWidth="250" MaxWidth="250" Panel.ZIndex="300"   TextWrapping="Wrap"  Grid.RowSpan="3" Width="200"/>
+                            </Grid>
+                        </Border>
+                    </ScrollViewer>
+
+                    <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto" Height="150"  Margin="0" Visibility="{Binding LinkListVisibility}">
+                        <Border BorderThickness="1" BorderBrush="Silver"  >
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="20"/>
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <TextBlock VerticalAlignment="Center" Margin="5,0" Text=" 附 件 " >
+                                    <TextBlock.Background>
+                                        <SolidColorBrush Color="LightGray" Opacity="0.6"/>
+                                    </TextBlock.Background>
+                                </TextBlock>
+                                <StackPanel Grid.Row="1"  x:Name="stackPanelLinkList"   MinWidth="250" MaxWidth="250">
+                                    <StackPanel.Resources>
+                                        <Style TargetType="TextBlock">
+                                            <Setter Property="Foreground" Value="Black"/>
+                                            <Setter Property="Margin" Value="3,0,0,3"/>
+                                            <Setter Property="FontSize" Value="14"/>
+                                        </Style>
+                                    </StackPanel.Resources>
+
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+                    </ScrollViewer>
+                </Grid>
+            </Border>
+
+            <ContentPresenter VerticalAlignment="Center"   DockPanel.Dock="Right" Focusable="false" Visibility="{Binding ContentVisibility}" >
+                <ContentPresenter.Content>
+                    <StackPanel x:Name="StackPanel" Orientation="Vertical">
+
+                    </StackPanel>
+                </ContentPresenter.Content>
+            </ContentPresenter>
+        </DockPanel>
+    </Border>
+</Common:UserControlBase>

@@ -1,0 +1,1 @@
+﻿<%@ WebService Language="C#" CodeBehind="ConferenceTreeWebService.asmx.cs" Class="ConferenceWeb.ConferenceTreeWebService" %>

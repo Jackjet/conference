@@ -1,0 +1,20 @@
+﻿<UserControl x:Class="Conference.View.Resource.ApplicationItem"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d"  BorderBrush="Silver" BorderThickness="2"
+         MinHeight="30"   Width="240">
+    <Grid x:Name="bor" MouseEnter="bor_MouseEnter" MouseLeave="bor_MouseLeave">
+        <!--<Grid.ColumnDefinitions>
+            <ColumnDefinition Width="140" />            
+            <ColumnDefinition Width="100" />
+        </Grid.ColumnDefinitions>-->
+        <TextBlock VerticalAlignment="Center" TextWrapping="Wrap" Text="{Binding ApplicationItemTitle}" Margin="5,0,0,0" />
+       
+        <!--<StackPanel VerticalAlignment="Center" Orientation="Horizontal" Grid.Column="2">
+            <TextBlock Text="分享者："/>
+            <TextBlock Text="{Binding StrOwner}"/>
+        </StackPanel>-->     
+    </Grid>
+</UserControl>

@@ -1,0 +1,226 @@
+﻿<UserControl 
+             x:Class="Conference_IMM.ConferenceAudio_View"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="600">
+    <UserControl.Resources>
+
+        <!--图片按钮-->
+        <Style x:Key="btnStyleH2" TargetType="{x:Type Button}">
+            <Setter Property="FontSize" Value="13.6"/>
+            <Setter Property="FontFamily" Value="微软雅黑"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border  Background="{TemplateBinding Background}"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!--提交按钮背景-->
+        <ImageBrush x:Key="brush_Submit" ImageSource="pack://application:,,,/Image/Submit.png"/>
+        <!--录制按钮背景-->
+        <ImageBrush x:Key="brush_Record" ImageSource="pack://application:,,,/Image/Record.png"/>
+        <!--网页客户端二维码背景-->
+        <ImageBrush x:Key="brush_QR" ImageSource="pack://application:,,,/Image/MeetInt.png"/>
+
+        <!--语音转文字-->
+        <Storyboard x:Key="Storyboard1" RepeatBehavior="Forever">
+            <DoubleAnimationUsingKeyFrames  Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="path">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="20"/>
+
+                <EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="360"/>
+
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+
+        <Style x:Key="txtNormalStyle" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontFamily" Value="微软雅黑"/>
+            <!--<Setter Property="FontWeight" Value="Bold"/>-->
+            <Setter Property="FontSize" Value="13.5"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+        </Style>
+
+        <Style x:Key="btnAudioStyle" TargetType="{x:Type Button}">
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+           
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid Cursor="Hand" Background="Transparent">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid  Background="{StaticResource brush_Record}" >
+                                
+                            </Grid>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="btnAudioRunStyle" TargetType="{x:Type Button}">
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+         
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid Cursor="Hand" Background="Transparent">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid  >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+
+                                <Path Grid.RowSpan="3"  Grid.ColumnSpan="3"  x:Name="path"  Width="45" Height="45"   Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                                    <Path.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform/>
+                                            <SkewTransform/>
+                                            <RotateTransform/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </Path.RenderTransform>
+
+                                    <Path.Data>
+                                        <PathGeometry>
+                                            <PathFigure IsClosed="True" StartPoint="100,0">
+                                                <BezierSegment IsSmoothJoin="True" Point3="200,100.000007629395" Point2="200,44.7715301513672" Point1="155.228485107422,0"/>
+                                                <BezierSegment Point3="100,200" Point2="155.228485107422,200" Point1="200,155.228485107422"/>
+                                                <BezierSegment IsSmoothJoin="True" Point3="0,99.9999923706055" Point2="0,155.228469848633" Point1="44.7715225219727,200"/>
+                                                <BezierSegment Point3="100,0" Point2="44.7715225219727,0" Point1="0,44.7715148925781"/>
+                                            </PathFigure>
+                                            <PathFigure IsClosed="True" StartPoint="100,10">
+                                                <BezierSegment IsSmoothJoin="True" Point3="10,100.000007629395" Point2="10,50.294376373291" Point1="50.2943687438965,10"/>
+                                                <BezierSegment Point3="100,190" Point2="50.2943687438965,190" Point1="10,149.705642700195"/>
+                                                <BezierSegment IsSmoothJoin="True" Point3="190,99.9999923706055" Point2="190,149.705627441406" Point1="149.705627441406,190"/>
+                                                <BezierSegment Point3="100,10" Point2="149.705627441406,10" Point1="190,50.2943649291992"/>
+                                            </PathFigure>
+                                        </PathGeometry>
+                                    </Path.Data>
+                                    <Path.Fill>
+                                        <ImageBrush Opacity="0.8" ImageSource="pack://application:,,,/Image/Ring.png"/>
+                                    </Path.Fill>
+                                    <Path.Triggers>
+                                        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+                                            <BeginStoryboard Storyboard="{StaticResource Storyboard1}"/>
+                                        </EventTrigger>
+                                    </Path.Triggers>
+                                </Path>
+                                <!--<Image Grid.ColumnSpan="3" Grid.RowSpan="2" Width="28" Height="28" HorizontalAlignment="Center" VerticalAlignment="Center" Source="/Image/ImgRecord.png"/>-->
+                                <!--<Path   Grid.Column="1" Grid.Row="1" Panel.ZIndex="100" Data="M4.8749952,40.539997 L5.81248,40.603004 6.6874609,40.852509 7.4374485,41.16502 8.125433,41.665047 8.6879139,42.228065 9.1248989,42.977589 9.4994025,43.790127 9.6869102,44.540161 9.6869102,59.415779 9.6869102,60.227806 9.9999013,61.603401 10.2504,62.603939 10.624884,63.853455 11.06239,64.665993 11.562377,65.853043 12.874355,67.665665 13.874852,69.040779 15.000341,70.665901 15.937796,71.916 16.874761,72.854073 17.812244,73.916588 18.687235,74.666595 19.812227,75.666603&#xa;20.875205,76.416626 22.062639,77.291634 23.374576,78.041634 25.18706,78.854637 26.687045,79.541962 27.875038,79.978851 29.187446,80.291496 30.562346,80.541611 32.62518,80.666664 34.458653,80.53875 34.458999,80.500587 34.732339,80.519653 35.02,80.499588 35.020362,80.539749 36.853818,80.667664 38.916654,80.54261 40.291553,80.292496 41.603961,79.979851 42.791953,79.542961 44.291938,78.855637 46.104424,78.042633 47.416362,77.292633 48.603793,76.417625&#xa;49.666774,75.667603 50.791762,74.667595 51.666755,73.917587 52.604239,72.855072 53.541202,71.917 54.478656,70.666901 55.604148,69.041779 56.604644,67.666664 57.916621,65.854042 58.41661,64.666992 58.854114,63.854454 59.228599,62.604942 59.479098,61.604404 59.79209,60.228809 59.79209,59.416779 59.79209,44.541161 59.979594,43.791126 60.354098,42.978588 60.791087,42.229065 61.353564,41.66605 62.041553,41.166019 62.791537,40.853508 63.666518,40.604004&#xa;64.604003,40.540997 65.666991,40.603504 66.479503,40.791012 67.417514,41.228527 68.105021,41.728546 68.854518,42.228573 69.478999,43.041103 69.478999,59.354282 69.478999,60.416824 69.292003,62.354404 68.916999,63.541954 68.417003,65.042023 67.604503,67.104599 66.542003,69.479706 65.729503,71.042267 64.916995,72.354828 63.979499,73.792374 63.229503,75.042427 62.166995,76.29248 61.229503,77.480042 59.292003,79.667625 57.479495,81.292694 55.416999,83.04277&#xa;52.916999,84.730347 50.479503,85.980904 49.291999,86.605431 47.792006,87.292458 45.666997,87.97998 44.604499,88.417 43.416997,88.729507 42.354497,89.041512 41.167005,89.291519 39.979503,89.541512 39.417001,89.791512 39.417001,102.54163 54.104503,102.54163 55.125335,102.66663 55.792003,102.95831 56.250335,103.24964 56.750331,103.54165 57.458671,104.20831 57.750327,104.91631 58.000339,105.79131 58.166999,106.41631 58.166999,108.20799 58.041995,108.91599&#xa;57.917003,109.49932 57.667003,109.95799 57.167003,110.79099 56.625339,111.54098 56.125331,111.99932 55.666999,112.41631 55.208671,112.58299 54.541999,112.83266 54.250331,112.87399 34.167001,112.87399 34.16701,112.87299 15.228666,112.87299 14.937,112.83166 14.270329,112.58199 13.811999,112.41531 13.35367,111.99831 12.85366,111.53998 12.311996,110.78999 11.811996,109.95699 11.561997,109.49832 11.437003,108.91499 11.311999,108.20699 11.311999,106.41531&#xa;11.478662,105.79031 11.728671,104.91531 12.020328,104.20731 12.728666,103.54065 13.228665,103.24864 13.686994,102.95731 14.353665,102.66563 15.374495,102.54063 30.061998,102.54063 30.061998,89.790512 29.499497,89.540512 28.311995,89.290512 27.124501,89.040512 26.062003,88.728508 24.8745,88.416 23.812001,87.978981 21.686995,87.291458 20.187,86.604431 18.999497,85.979904 16.561998,84.729347 14.061998,83.041771 11.999504,81.291695 10.186999,79.666626&#xa;8.2494974,77.479042 7.3120036,76.291481 6.2494946,75.041428 5.4994984,73.791374 4.5620041,72.353828 3.7494946,71.041267 2.9369946,69.478706 1.8744965,67.1036 1.0619965,65.041023 0.56199932,63.540951 0.18699551,62.353405 0,60.415825 0,59.353283 0,43.040104 0.62448215,42.227573 1.3739786,41.727543 2.0614843,41.227524 2.9994984,40.790012 3.8120079,40.602505 z M34.624,0 C45.30132,7.1054274E-15 53.957,8.9543047 53.957,20 L53.957,54 C53.957,65.045692 45.30132,74 34.624,74 23.946678,74 15.290999,65.045692 15.290999,54 L15.290999,20 C15.290999,8.9543047 23.946678,7.1054274E-15 34.624,0 z"  Stretch="Fill"  >
+                                    <Path.Fill>
+                                        <ImageBrush ImageSource="/Image/btnRecord.png"/>
+                                    </Path.Fill>
+                                </Path>-->
+                            </Grid>
+                        </Grid>
+
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+        <!--图片按钮(文字居中,不带弧度)-->
+        <Style x:Key="btnStyleH4" TargetType="{x:Type Button}">
+            <Setter Property="FontSize" Value="13.6"/>
+            <Setter Property="FontFamily" Value="微软雅黑"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border  Background="{TemplateBinding Background}">
+
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <!--<Border.Effect>
+                                <DropShadowEffect Direction="272" Color="Gray" ShadowDepth="3"/>
+                            </Border.Effect>-->
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <!--蓝色按钮背景-->
+        <ImageBrush x:Key="brush_Blue" ImageSource="pack://application:,,,/Image/blue.png"/>
+        <!--蓝色按钮背景-->
+        <ImageBrush x:Key="brush_Orange" ImageSource="pack://application:,,,/Image/Orange.png"/>
+    </UserControl.Resources>
+    <Border  Background="White" BorderBrush="Silver" BorderThickness="1" Padding="2">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="85"/>
+            </Grid.RowDefinitions>
+            <ScrollViewer VirtualizingStackPanel.IsVirtualizing="True"   x:Name="AudioTextScrollView" Background="White"  VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                <!--<VirtualizingStackPanel VirtualizingStackPanel.IsVirtualizing="True"  Orientation="Vertical"  x:Name="stackDiscussContent" >
+                    
+                </VirtualizingStackPanel>-->
+                <!--语音讨论-->
+                <StackPanel    x:Name="stackDiscussContent" >
+
+                </StackPanel>
+            </ScrollViewer>
+            <Border Grid.Row="1" BorderBrush="Silver" BorderThickness="0,1,0,0">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="535"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox  FontSize="22" x:Name="txtInput" TextWrapping="Wrap"  KeyDown="KeySubMitAudioText"/>
+                    <StackPanel Orientation="Horizontal" Grid.Column="1">
+                       
+                        <Button x:Name="btnSubmitAudio" Background="{StaticResource brush_Submit}" Margin="5,0,0,0" Style="{StaticResource btnStyleH2}" Width="85" Height="45" ToolTip="提交"/>
+                        <StackPanel  VerticalAlignment="Center" Orientation="Vertical" Margin="5,0,5,5">
+                            <RadioButton x:Name="radioBtnJustText"  FontSize="13.5" Content=" 直接转文字" Margin="0,0,0,5"/>
+                            <RadioButton x:Name="radioBtnAudioAndText" IsChecked="True" FontSize="13.5" Content=" 语音加文字"/>
+                        </StackPanel>
+                        <Button x:Name="btnAudioTransfer"  Margin="5,0,0,0" VerticalAlignment="Center"  HorizontalAlignment="Center"  ToolTip="点击进行语音识别"  Style="{StaticResource btnAudioStyle}"    Width="85" Height="45"/>
+                        <Button x:Name="btnTextClear" Foreground="White" Style="{StaticResource  btnStyleH4}" Background="{StaticResource brush_Blue}" Margin="5,0,0,0" VerticalAlignment="Center"  HorizontalAlignment="Center"  ToolTip="清除文本"      Content=" 清除文本 " FontSize="13.5" Height="45" Width="80"/>
+                        <Button x:Name="btnExportWord" Foreground="White" Style="{StaticResource  btnStyleH4}" Background="{StaticResource brush_Blue}" Margin="5,0,0,0" VerticalAlignment="Center"  HorizontalAlignment="Center"  ToolTip="导出Word"      Content=" 导出Word " FontSize="13.5" Height="45" Width="80"/>
+                        <Button x:Name="btnExportPDF" Foreground="White" Style="{StaticResource  btnStyleH4}" Background="{StaticResource brush_Blue}" Margin="5,0,0,0" VerticalAlignment="Center"  HorizontalAlignment="Center"  ToolTip="导出PDF"      Content=" 导出PDF " FontSize="13.5" Height="45" Width="80"/>
+                        
+                        <Button Visibility="Hidden" x:Name="btnQR"  Margin="5,0,0,0" VerticalAlignment="Center"  HorizontalAlignment="Center"  ToolTip="点击进行语音识别"  Content="弹出二维码" FontSize="16"    Height="55"/>
+                       
+                    </StackPanel>
+                </Grid>
+            </Border>
+         <!--<Control:Loading  x:Name="loading"/>-->
+        </Grid>
+    </Border>
+</UserControl>

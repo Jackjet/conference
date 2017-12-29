@@ -1,0 +1,48 @@
+﻿<Common:UserControlBase
+  xmlns:Common="clr-namespace:ConferenceCommon.WPFHelper;assembly=ConferenceCommon"
+  x:Class="Conference_Conversation.ConversationResourceItem"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d"  ToolTip="点击立即演示"
+   
+             Height="30" Width="380">
+  <Common:UserControlBase.Resources>
+        <!--释放资源按钮-->
+        <Style x:Key="btnDisposeStyle" TargetType="Button">
+            <Setter Property="Template" >
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">                       
+                            <!--<Path Width="40" x:Name="path" VerticalAlignment="Bottom" Height="10"  Fill="White" Data="M21.25,6.3329935E-07 C24.425637,4.3585896E-07 27,2.5743632 27,5.7500004 27,8.9256377 24.425637,11.5 21.25,11.5 18.074363,11.5 15.5,8.9256377 15.5,5.7500004 15.5,2.5743632 18.074363,4.3585896E-07 21.25,6.3329935E-07 z M36.75,0 C39.925637,4.3585896E-07 42.5,2.5743632 42.5,5.7500004 42.5,8.9256377 39.925637,11.5 36.75,11.5 33.574363,11.5 31,8.9256377 31,5.7500004 31,2.5743632 33.574363,4.3585896E-07 36.75,0 z M5.75,0 C8.9256382,4.3585896E-07 11.5,2.5743632 11.5,5.7500004 11.5,8.9256377 8.9256382,11.5 5.75,11.5 2.5743618,11.5 0,8.9256377 0,5.7500004 0,2.5743632 2.5743618,4.3585896E-07 5.75,0 z"   Stretch="Fill"  />-->
+                            <Border x:Name="bor" >
+                                <!--<Border.Background>
+                                <ImageBrush ImageSource="/Image/delete.ico"/>
+                                </Border.Background>-->
+                            </Border>                                                                 
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Common:UserControlBase.Resources>
+    <Grid x:Name="bor">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="120" />
+            <ColumnDefinition/>
+            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="40"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock VerticalAlignment="Center" Text="{Binding ShareResouceItemTitle}" Margin="10,0,0,0" />
+
+        <StackPanel VerticalAlignment="Center" Orientation="Horizontal" Grid.Column="1">
+            <TextBlock Text="当前演示者："/>
+            <TextBlock Text="{Binding StrPresenter}"/>
+        </StackPanel>
+        <StackPanel VerticalAlignment="Center" Orientation="Horizontal" Grid.Column="2">
+            <TextBlock Text="拥有者："/>
+            <TextBlock Text="{Binding StrOwner}"/>
+        </StackPanel>
+
+        <Button Width="30" HorizontalAlignment="Left" Grid.Column="3" x:Name="btnDispose" Cursor="Hand" ToolTip="释放资源" Style="{StaticResource btnDisposeStyle}" Height="23"/>
+    </Grid>
+</Common:UserControlBase>

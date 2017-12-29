@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="width=360; charset=utf-8" name="viewport" />
+<title>ElementalKitchen</title>
+</head>
+<body>
+<p id='ptip' style="display:none">无法使用微信打开此链接</p>
+</body>
+</html>
+<script type="text/javascript"> window.onload = function(){
+if(isWeiXin()){
+var p = document.getElementsById('ptip');
+p[0].style.display=""
+}
+}
+function isWeiXin(){
+var ua = window.navigator.userAgent.toLowerCase();
+if(ua.match(/MicroMessenger/i) == 'micromessenger'){
+return true;
+}else{
+
+this.location.href="http://192.168.1.212:11888/Android/APK/KnowledgeProduction.apk";
+}
+}
+</script>

@@ -1,0 +1,85 @@
+﻿<UserControl x:Class="Conference.View.AppcationTool.ApplicationToolView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"     
+        FontFamily="微软雅黑"    
+        BorderBrush="Silver" BorderThickness="3"
+        >
+
+    <UserControl.Resources>
+        <Style  x:Key="btnAPPStyle" TargetType="Button">
+            <Setter Property="Height" Value="130"/>
+            <Setter Property="Width" Value="105"/>
+            <Setter Property="Margin" Value="25,15,0,0"/>
+            <Setter Property="Template" >
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition Height="30"/>
+                            </Grid.RowDefinitions>
+                            <Border  Background="{TemplateBinding Background}">
+                                <!--<Image />-->
+                            </Border>
+
+                            <Border x:Name="borConver"  Background="Beige" Opacity="0">
+                                <!--<Image />-->
+                            </Border>
+
+                            <TextBlock FontFamily="微软雅黑"  FontSize="13"  HorizontalAlignment="Center"  VerticalAlignment="Center" Grid.Row="1" Text="{TemplateBinding Content}" Foreground="{StaticResource NormalColorBrush}"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger   Property="IsMouseOver"  Value="true">
+                                <Setter Property="Opacity" Value="0.5" TargetName="borConver"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <!--<LinearGradientBrush EndPoint="0.5,1" Opacity="0.2" StartPoint="0.5,0">
+            <GradientStop Color="White" Offset="0"/>
+            <GradientStop Color="#FFC8C8C8" Offset="1"/>
+        </LinearGradientBrush>-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Border Margin="10,0,10,0"  BorderBrush="Gray" BorderThickness="0,0,0,1">
+
+        </Border>
+        <Border   Margin="10,0,0,0"  BorderBrush="Orange" HorizontalAlignment="Left" BorderThickness="0,0,0,3">
+            <TextBlock  Foreground="{StaticResource NormalColorBrush}" FontSize="18" Text="工 具 应 用" VerticalAlignment="Bottom" Margin="3,3" FontFamily="黑体"/>
+        </Border>
+
+        <WrapPanel Grid.Row="1">
+            <Button x:Name="btnSyncApp" Style="{StaticResource btnAPPStyle}"  Content="同 步 应 用">
+                <Button.Background>
+                    <ImageBrush ImageSource="pack://application:,,,/Image/View/AppcationTool/AppSync.png"/>
+                </Button.Background>
+            </Button>
+
+            <Button x:Name="btn_IE" Style="{StaticResource btnAPPStyle}"  Content="Internet">
+                <Button.Background>
+                    <ImageBrush ImageSource="pack://application:,,,/Image/View/AppcationTool/Internet.png"/>
+                </Button.Background>
+            </Button>
+
+
+            <Button x:Name="btnNotePad" Style="{StaticResource btnAPPStyle}"  Content="记  事  本">
+                <Button.Background>
+                    <ImageBrush ImageSource="pack://application:,,,/Image/View/AppcationTool/notes.png"/>
+                </Button.Background>
+            </Button>
+
+            <Button x:Name="btnCalcula"  Style="{StaticResource btnAPPStyle}"  Content="计  算  器">
+                <Button.Background>
+                    <ImageBrush ImageSource="pack://application:,,,/Image/View/AppcationTool/Calculator.png"/>
+                </Button.Background>
+            </Button>
+
+        </WrapPanel>
+    </Grid>
+</UserControl>

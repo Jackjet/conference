@@ -1,0 +1,100 @@
+﻿<Grid x:Class="Conference_Space.UCBook"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             VerticalAlignment="Bottom"
+             HorizontalAlignment="Left"
+             Cursor="Hand"  Margin="5, 0, 0, 10"
+             Height="230" 
+             Width="100"
+             d:DesignHeight="150" d:DesignWidth="100" >
+    <Grid.Resources>
+
+        <!--字体颜色-->
+        <SolidColorBrush x:Key="GreenColorBrush" Color="LightGreen"/>
+        <SolidColorBrush x:Key="NormalColorBrush" Color="#4d4d4d"/>
+        
+        <Storyboard x:Key="Storyboard1" RepeatBehavior="Forever">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)"   Storyboard.TargetName="image">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.2"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:3" Value="0.5"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:4" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="image">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="25"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="10"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:3" Value="25"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:4" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+
+        <Style TargetType="Label">
+            <Setter Property="Template" >
+                <Setter.Value>
+                    <ControlTemplate TargetType="Label">
+
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+        <ImageBrush x:Key="BookSelect"  ImageSource="pack://application:,,,/Image/BookSelected.png"/>
+    </Grid.Resources>
+   
+    <Grid.RowDefinitions>
+        <RowDefinition Height="60"/>
+        <RowDefinition Height="20"/>
+        <RowDefinition/>
+    </Grid.RowDefinitions>
+
+    <Image  Height="30" x:Name="image" VerticalAlignment="Bottom" Visibility="{Binding ArrowVisibility}" Source="pack://application:,,,/Image/ArrowSelect.png">
+        <Image.RenderTransform>
+            <TransformGroup>
+                <ScaleTransform/>
+                <SkewTransform/>
+                <RotateTransform/>
+                <TranslateTransform/>
+            </TransformGroup>
+        </Image.RenderTransform>
+    </Image>
+    <Border Grid.Row="2" x:Name="borBook">
+        <Border.Background>
+            <ImageBrush ImageSource="pack://application:,,,/Image/folder.png"/>
+        </Border.Background>
+        <Border.Effect>
+            <DropShadowEffect Direction="320" BlurRadius="6"/>
+        </Border.Effect>       
+    </Border>
+
+    <Grid Grid.Row="2"  >       
+        <Grid.RowDefinitions>
+            <RowDefinition x:Name="row1" Height="{Binding Row1Height}"/>
+            <RowDefinition x:Name="row2" Height="{Binding Row2Height}"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        
+
+        <!--<Path x:Name="path" Grid.Row="1" Fill ='Black' Margin='-1.5,0,-2,0' Stretch='Fill' Opacity='0.8' Data="M98,176 L96,178.66667 L95.333336,183.33243 L95.333336,236.66194 L389.29663,235.995 L390.6301,178.66644 L387.96338,175.33339 L384.63046,176.66693 L379.96439,178.00015 L102.66608,179.33337 z"/>-->
+
+        <StackPanel Grid.Row="1" VerticalAlignment="Top" >
+            <StackPanel.Resources>
+                <Style TargetType="TextBlock">
+                    <Setter Property="TextWrapping" Value="Wrap"/>
+                    <Setter Property="FontSize" Value="14"/>
+                    <Setter Property="FontFamily" Value="微软雅黑"/>
+                    <Setter Property="HorizontalAlignment" Value="Center"/>
+                    <Setter Property="Margin" Value="15, -7, 0, 0"/>
+                </Style>
+            </StackPanel.Resources>
+            <TextBlock Foreground="{StaticResource NormalColorBrush}"  x:Name="txt" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="{Binding Book_Title}">
+               
+            </TextBlock>
+        </StackPanel>
+    </Grid>
+    <Border HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="40" Width="40" Margin="0,0,2,2" Visibility="{Binding SelectedVisibility}" Background="{StaticResource BookSelect}"  Grid.Row="2" />
+</Grid>

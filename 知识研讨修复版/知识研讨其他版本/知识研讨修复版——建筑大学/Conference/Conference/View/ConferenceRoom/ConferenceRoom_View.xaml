@@ -1,0 +1,28 @@
+﻿<UserControl x:Class="Conference.View.ConferenceRoom.ConferenceRoom_View"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d"  Margin="10,0,0,0" 
+             >
+
+    <Grid>
+        <!--<StackPanel Orientation="Horizontal">
+            <Border Width="410" Height="185" Background="{StaticResource brush_Room2}">
+                
+            </Border>
+            <Border Width="410" Height="185" Background="{StaticResource brush_Room2}">
+                
+            </Border>
+            <Border Width="410" Height="185" Background="{StaticResource brush_Room2}">
+                
+            </Border>
+        </StackPanel>-->
+        
+       
+        <StackPanel Orientation="Horizontal"  Height="185"  x:Name="wrapPanle" >
+        </StackPanel>
+        <Border x:Name="borD" HorizontalAlignment="Right" Height="185" Margin="0,0,30,0"  BorderThickness="0,0,0,2" BorderBrush="Gray">
+        </Border>
+    </Grid>
+</UserControl>

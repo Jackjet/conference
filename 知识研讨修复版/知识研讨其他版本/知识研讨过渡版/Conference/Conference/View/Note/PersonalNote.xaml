@@ -1,0 +1,28 @@
+﻿<Common:UserControlBase xmlns:Common="clr-namespace:ConferenceCommon.WPFHelper;assembly=ConferenceCommon"
+                        xmlns:Control="clr-namespace:ConferenceCommon.WPFControl;assembly=ConferenceCommon" 
+                        x:Class="Conference.View.Note.PersonalNote"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:form="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
+             xmlns:wfi ="clr-namespace:System.Windows.Forms.Integration;assembly=WindowsFormsIntegration"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Common:UserControlBase.Resources>
+        <!--蓝色按钮背景-->
+        <ImageBrush x:Key="brush_NoteBG" Opacity="0.3" ImageSource="pack://application:,,,/Image/View/Note/PersonNoteBG.png"/>
+    </Common:UserControlBase.Resources>
+    <Grid>
+
+        <Border  x:Name="borPersonNote" Visibility="{Binding PersonNoteVisibility}">
+            <WindowsFormsHost   >
+                <form:WebBrowser x:Name="webBrowser"/>
+            </WindowsFormsHost>
+        </Border>
+
+        <Border  >
+            <Control:Loading x:Name="loading" Visibility="{Binding LoadingVisibility}"  />
+        </Border>
+    </Grid>
+</Common:UserControlBase>

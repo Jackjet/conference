@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="Conference_Conversation.ConversationHost"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+               xmlns:form="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
+             mc:Ignorable="d"   MinHeight="686"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid  MinHeight="686" >
+        <Grid  Grid.Column="0">
+            <WindowsFormsHost  MinHeight="686"  x:Name="winHost" >
+                <form:Panel x:Name="panel"   >
+                </form:Panel>
+            </WindowsFormsHost>
+        </Grid>
+    </Grid>
+</UserControl>

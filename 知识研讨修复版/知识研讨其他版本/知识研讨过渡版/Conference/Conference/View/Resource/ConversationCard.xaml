@@ -1,0 +1,75 @@
+﻿<UserControl x:Class="Conference.View.Resource.ConversationCard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="200" d:DesignWidth="400"             
+             >
+    <Border BorderThickness="1,1,1,2" BorderBrush="Silver">
+        <Grid >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition/>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Border>
+                <!--<Border.Background>
+                    <ImageBrush Opacity="0.4" ImageSource="/Image/Head.png"/>
+                </Border.Background>-->
+                <TextBlock  Text="{Binding Title}" Foreground="White"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Border>
+            
+            <Border BorderBrush="Silver" BorderThickness="0,0,0,1" x:Name="bor" Background="Transparent" Grid.Row="1">             
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition/>                      
+                    </Grid.RowDefinitions>
+                    <TextBlock Text=" 参 与 人 ：" Foreground="Black"/>
+                    <WrapPanel Grid.Row="1" x:Name="wraPanel">      
+                        <WrapPanel.Resources>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="Margin" Value="5,0"/>    
+                                <Setter Property="Foreground" Value="Black"/>
+                            </Style>
+                        </WrapPanel.Resources>                       
+                    </WrapPanel>
+                                       
+                </Grid>
+             
+            </Border>
+
+            <Border x:Name="bor2" Background="Transparent" Grid.Row="2">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>                   
+                    <TextBlock Text=" 当 前 参 与 者："  Foreground="Black"/>
+                    <WrapPanel Grid.Row="1" x:Name="wraPanel2" >
+                        <WrapPanel.Resources>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="Margin" Value="5,0"/>
+                                <Setter Property="Foreground" Value="Black"/>
+                            </Style>
+                        </WrapPanel.Resources>
+                    </WrapPanel>
+                </Grid>
+
+            </Border>
+
+            <!--<Border Grid.Row="2" BorderBrush="Silver" BorderThickness="0,1,0,0">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button x:Name="btnAudio" Content="启动音频" Height="23" Margin="0,0,3,0"/>
+                    <Button x:Name="btnVideo" Content="启动视频" Height="23" Margin="0,0,3,0" />
+                    <Button x:Name="btnMax" Content="最大化" Height="23" Margin="0,0,3,0"/>
+                    <Button x:Name="btnMin" Content="最小化" Height="23" Margin="0,0,3,0"/>
+                    <Button x:Name="btnReduction" Content="还原" Height="23" Margin="0,0,3,0"/>
+                    <Button x:Name="btnFullScreen" Content="全屏" Height="23" Margin="0,0,3,0"/>
+                    <Button x:Name="btnClose" Content="关闭会话" Height="23" Margin="0,0,3,0"/>
+                </StackPanel>
+            </Border>-->
+        </Grid>
+    </Border>
+</UserControl>

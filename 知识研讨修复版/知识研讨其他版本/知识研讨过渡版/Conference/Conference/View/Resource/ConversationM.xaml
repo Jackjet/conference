@@ -1,0 +1,118 @@
+﻿<Common:UserControlBase xmlns:Common="clr-namespace:ConferenceCommon.WPFHelper;assembly=ConferenceCommon"  
+                        xmlns:Resource="clr-namespace:Conference.View.Resource"  
+                        xmlns:Controls="clr-namespace:Microsoft.Lync.Controls;assembly=Microsoft.Lync.Controls" 
+             x:Class="Conference.View.Resource.ConversationM"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:form="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
+           xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing"
+             mc:Ignorable="d"  Foreground="{StaticResource NormalColorBrush}"
+             d:DesignHeight="700" d:DesignWidth="1000">
+    <Common:UserControlBase.Resources>
+
+    </Common:UserControlBase.Resources>
+    <Grid>
+
+
+        <TabControl  x:Name="tabControl">
+            <TabItem Style="{StaticResource tabitem_style3}"  Height="26" Foreground="{StaticResource NormalColorBrush}"  FontFamily="微软雅黑" FontSize="13.5" x:Name="tabItem1">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text=" 演  示  区  域 "/>
+                        <TextBlock Visibility="{Binding ResourcePresenterVisibility}" Text="（"/>
+                        <TextBlock Visibility="{Binding ResourcePresenterVisibility}" Text="{Binding ResourcePresenter}"/>
+                        <TextBlock Visibility="{Binding ResourcePresenterVisibility}" Text="）"/>
+                    </StackPanel>                   
+                </TabItem.Header>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="100" />
+                    </Grid.ColumnDefinitions>
+                    <Border x:Name="borConversation" BorderBrush="Silver" BorderThickness="1">
+                      
+                    </Border>
+
+                    <Grid Grid.Column="1">
+                        <StackPanel >
+                            <StackPanel>
+                                <TextBlock HorizontalAlignment="Center" FontSize="15" Foreground="{StaticResource NormalColorBrush}" Text="选择共享"  Margin="0,0,0,3"/>
+                                <Border Width="63" HorizontalAlignment="Center" BorderBrush="#FF005C83" BorderThickness="0,1,0,0">
+                                    <ed:RegularPolygon  Fill="#FF005C83" VerticalAlignment="Bottom" HorizontalAlignment="Center" Height="5" InnerRadius="1"  PointCount="3" Stretch="Fill"   Width="15" RenderTransformOrigin="0.5,0.5">
+                                        <ed:RegularPolygon.RenderTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform/>
+                                                <SkewTransform/>
+                                                <RotateTransform Angle="180"/>
+                                                <TranslateTransform/>
+                                            </TransformGroup>
+                                        </ed:RegularPolygon.RenderTransform>
+                                    </ed:RegularPolygon>
+                                </Border>
+                            </StackPanel>
+                            <Button x:Name="btnprojection"  Visibility="Collapsed" VerticalAlignment="Bottom" Content="大屏投影" Style="{StaticResource btnStyleH6}" Background="{StaticResource brush_projection}" Margin="0,0,0,25" />
+                            <Button x:Name="btnDeskShare" Margin="0,10,0,5"  FontWeight="Normal" Content="桌面同步" Style="{StaticResource btnStyleH6}" Background="{StaticResource brush_DeskShare}" />
+                            <Rectangle Fill="LightGray" Width="60" Height="1"/>
+                            <Button x:Name="btnWhiteboard" Margin="0,10,0,5" FontWeight="Normal" Content="电子白板" Style="{StaticResource btnStyleH6}" Background="{StaticResource brush_Whiteboard}" />
+                            <Rectangle Fill="LightGray" Width="60" Height="1"/>
+                            <Button x:Name="btnLocalResource" Margin="0,10,0,0" FontWeight="Normal" Content="本地文件" Style="{StaticResource btnStyleH6}" Background="{StaticResource brush_U_Resouce}" />
+
+
+                            <!--<Button x:Name="btnFullScreen" Height="70" Content="启动全屏" Style="{StaticResource btnStyleH6}" Background="{StaticResource brush_ExitFullScreen}"/>
+                <Button x:Name="btnExitFullScreen" Content="退出全屏"  Style="{StaticResource btnStyleH6}" Background="{StaticResource brush_FullScreen}"/>-->
+                            <Button x:Name="btnDemonstration" Visibility="Collapsed" Height="70" Margin="0,60,0,0" Content="接任演示" Style="{StaticResource btnStyleH6}" Background="{StaticResource brush_ExitFullScreen}"/>
+
+
+                            <Button x:Name="btnPostil" Height="80" Margin="0,50,0,0" Content="显示批注" Style="{StaticResource btnStyleH6}" Background="{StaticResource brush_Postil}"/>
+                        </StackPanel>
+
+                        <StackPanel Margin="0,0,0,20" VerticalAlignment="Bottom" >
+                            <TextBlock FontSize="15" HorizontalAlignment="Center" Foreground="{StaticResource NormalColorBrush}" Text="PPT翻页" Margin="0,0,0,6"/>
+                            <Border Width="60" HorizontalAlignment="Center" BorderBrush="#FF005C83" BorderThickness="0,1,0,0">
+                                <ed:RegularPolygon  Fill="#FF005C83" VerticalAlignment="Bottom" HorizontalAlignment="Center" Height="5" InnerRadius="1"  PointCount="3" Stretch="Fill"   Width="15" RenderTransformOrigin="0.5,0.5">
+                                    <ed:RegularPolygon.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform/>
+                                            <SkewTransform/>
+                                            <RotateTransform Angle="180"/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </ed:RegularPolygon.RenderTransform>
+                                </ed:RegularPolygon>
+                            </Border>
+                            
+                            <Resource:KeyControlView Margin="0,10,0,0" />
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+
+            </TabItem>
+            <TabItem  Style="{StaticResource tabitem_style3}"  Foreground="{StaticResource NormalColorBrush}" FontFamily="微软雅黑" FontSize="13.5" x:Name="tabItem2">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text=" 推  送  区  域 "/>
+                        <TextBlock Visibility="{Binding ResourcePusherVisibility}" Text="（"/>
+                        <TextBlock Visibility="{Binding ResourcePusherVisibility}" Text="{Binding ResourcePusher}"/>
+                        <TextBlock Visibility="{Binding ResourcePusherVisibility}" Text="）"/>
+                    </StackPanel>
+                </TabItem.Header>
+
+                <Border Grid.Row="1" Margin="4" BorderBrush="Silver" BorderThickness="1">
+                    <Grid >
+
+                        <Border    x:Name="borDecorate" Visibility="Visible"   >
+
+                        </Border>
+
+                        <Border   x:Name="borContent"  >
+                        </Border>
+                    </Grid>
+                </Border>
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</Common:UserControlBase>

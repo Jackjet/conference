@@ -1,0 +1,338 @@
+﻿<Space:SpaceBase  xmlns:Space="clr-namespace:Conference.View.Space"  
+                  xmlns:Book="clr-namespace:Conference.View.Space" 
+                  xmlns:Control="clr-namespace:Conference.Control" 
+                  x:Class="Conference.View.Space.MeetingSpace"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:form="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
+             mc:Ignorable="d"  Foreground="{StaticResource NormalColorBrush}"
+             d:DesignHeight="300" d:DesignWidth="1200">
+    <Space:SpaceBase.Resources>
+
+        <ImageBrush x:Key="bdImageBrush" ImageSource="pack://application:,,,/Image/View/Space/bg3.png" Stretch="Fill" Opacity="0.4"/>
+
+        <!--隐藏按钮样式-->
+        <LinearGradientBrush x:Key="linColor" EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+            <GradientStop Color="#75a8f7" Offset="0" />
+            <GradientStop Color="#3970ca" Offset="0.853" />
+        </LinearGradientBrush>
+        <Style x:Key="btnDisplayStyle" TargetType="{x:Type Button}">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid  Background="Transparent">
+                            <!--<Path  Fill="Transparent" HorizontalAlignment="Center" Height="25" Width="80" Data="M181.5,191.5L182,233 199.5,233 201.25,232.58333 202.16667,232.16667 202.91634,231.66667 203.58266,231.25 204.58298,230.58333 205.24997,229.83333 205.91664,228.91667 206.58296,227.83333 207.08328,226.83333 207.33362,226 207.00061,197 206.5006,196 206.08392,195.25 205.33391,194.25 204.66722,193.33333 203.50053,192.5 202.5005,191.91667 201.25047,191.33333 200.12544,191.12534 198.75041,191.12534z" Stretch="Fill" />-->
+                            <Path  Height="20" x:Name="path" Fill="Black" RenderTransformOrigin="0.5,0.5"  HorizontalAlignment="Center" Width="10" Data="M394.33334,204.66667L392.33368,206.99966 399.99939,213.33296 391.66745,219.66682 394.33347,222.33318 405.99863,214.33328 406.33191,212.99991z" Stretch="Fill" >
+                                <Path.RenderTransform>
+                                    <RotateTransform Angle="90" />
+                                </Path.RenderTransform>
+                            </Path>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Fill" TargetName="path" Value="skyblue"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="false">
+                                <Setter Property="Fill" TargetName="path" Value="Black"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="btnDisplayStyle3" TargetType="{x:Type Button}">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid  Background="Black">
+                            <Path VerticalAlignment="Center" Margin="0,-32,0,0"  Height="5" x:Name="path" RenderTransformOrigin="0.5,0.5" Fill="White" Data="M21.25,6.3329935E-07 C24.425637,4.3585896E-07 27,2.5743632 27,5.7500004 27,8.9256377 24.425637,11.5 21.25,11.5 18.074363,11.5 15.5,8.9256377 15.5,5.7500004 15.5,2.5743632 18.074363,4.3585896E-07 21.25,6.3329935E-07 z M36.75,0 C39.925637,4.3585896E-07 42.5,2.5743632 42.5,5.7500004 42.5,8.9256377 39.925637,11.5 36.75,11.5 33.574363,11.5 31,8.9256377 31,5.7500004 31,2.5743632 33.574363,4.3585896E-07 36.75,0 z M5.75,0 C8.9256382,4.3585896E-07 11.5,2.5743632 11.5,5.7500004 11.5,8.9256377 8.9256382,11.5 5.75,11.5 2.5743618,11.5 0,8.9256377 0,5.7500004 0,2.5743632 2.5743618,4.3585896E-07 5.75,0 z"   Stretch="Fill"  >
+                                <Path.RenderTransform>
+                                    <RotateTransform Angle="90" />
+                                </Path.RenderTransform>
+                            </Path>
+
+                            <!--<Path  Height="20" x:Name="path" Fill="#FFFFFFFF" RenderTransformOrigin="0.5,0.5"   Width="10" Data="M394.33334,204.66667L392.33368,206.99966 399.99939,213.33296 391.66745,219.66682 394.33347,222.33318 405.99863,214.33328 406.33191,212.99991z" Stretch="Fill" >
+                                <Path.RenderTransform>
+                                    <RotateTransform Angle="180" />
+                                </Path.RenderTransform>
+                            </Path>-->
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Fill" TargetName="path" Value="SkyBlue"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="false">
+                                <Setter Property="Fill" TargetName="path" Value="White"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Space:SpaceBase.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition x:Name="column1"/>
+            <!--<ColumnDefinition x:Name="column2" Width="20"/>-->
+            <ColumnDefinition   x:Name="column3" />
+        </Grid.ColumnDefinitions>
+
+        <Grid x:Name="gridBook">
+            <Grid.Resources>
+                <ImageBrush x:Key="oneRowImageBrush" ImageSource="pack://application:,,,/Image/Control/Book/BookShell2.png"/>
+                <ImageBrush x:Key="twoRowImageBrush" ImageSource="pack://application:,,,/Image/Control/Book/BookShell.png"/>
+                <ImageBrush x:Key="arrowLeft" ImageSource="pack://application:,,,/Image/View/Space/Left.png"/>
+                <ImageBrush x:Key="arrowRight" ImageSource="pack://application:,,,/Image/View/Space/right.png"/>
+                <!--左侧箭头按钮-->
+                <Style x:Key="btnArrowStyle" TargetType="Button">
+                    <Style.Setters>
+                        <Setter Property="Template" >
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border x:Name="borLeft"  Background="{TemplateBinding Background}"   Cursor="Hand" BorderBrush="Transparent" BorderThickness="1"  >
+
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="true">
+                                            <Setter Property="BorderBrush" TargetName="borLeft" >
+                                                <Setter.Value>
+                                                    <SolidColorBrush Color="LightGray"/>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Trigger>
+                                        <Trigger Property="IsMouseOver" Value="false">
+                                            <Setter Property="BorderBrush" TargetName="borLeft" >
+                                                <Setter.Value>
+                                                    <SolidColorBrush Color="Transparent"/>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style.Setters>
+                </Style>
+
+
+                <Style x:Key="btnSearchStyle" TargetType="Button">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Grid>
+                                    <Grid.Background>
+                                        <ImageBrush ImageSource="pack://application:,,,/Image/Control/Book/SearchBtn.png"/>
+                                    </Grid.Background>
+                                </Grid>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="true">
+                                        <Setter Property="Opacity" Value="0.5"/>
+                                    </Trigger>
+                                    <Trigger Property="IsMouseOver" Value="false">
+                                        <Setter Property="Opacity" Value="1"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+
+            </Grid.Resources>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+            <Border BorderBrush="Silver" BorderThickness="0,0,0,1">
+                <Border BorderBrush="Silver"  BorderThickness="0,0,0,1">
+                    <Grid x:Name="grid1" >
+                        <Grid.Background>
+                            <SolidColorBrush Color="LightGray"  />
+                        </Grid.Background>
+                        <StackPanel Orientation="Horizontal" Margin="0, 0, 0, 0"  HorizontalAlignment="Right">
+                            <TextBox  TextChanged="txtSearchChanged"   Style="{StaticResource txtSearchStyle}"  Text="{Binding SerchText}" Foreground="Black"  Width="120" Height="23" FontSize="12" Margin="0,0,15,0" />
+                            <Button  BorderThickness="0,0,10,0" x:Name="btnResourceUpload" Content="上传" Height="32" Style="{StaticResource btnStyleH22}" Width="70" Margin="0,0,5,0" Background="{StaticResource brush_ResourceUpLoad}" />
+                        </StackPanel>
+                    </Grid>
+                </Border>
+            </Border>
+
+            <Border Grid.Row="1" BorderBrush="Silver" BorderThickness="0,0,0,1">
+                <Grid>
+                    <Grid.Background>
+                        <SolidColorBrush Color="LightGray"  />
+                    </Grid.Background>
+
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" >
+                            <StackPanel.Resources>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="VerticalAlignment" Value="Center"/>
+                                    <Setter Property="FontFamily" Value="微软雅黑"/>
+                                    <Setter Property="FontSize" Value="14"/>
+                                    <Setter Property="Foreground" Value="Black"/>
+                                    <Setter Property="FontWeight" Value="Bold"/>
+                                </Style>
+                            </StackPanel.Resources>
+                            <TextBlock  Text="当前用户：" Foreground="{StaticResource NormalColorBrush}"   Margin="10,0,0,0"/>
+                            <TextBlock Foreground="{StaticResource NormalColorBrush}" Text="{Binding CurrentUserName}"  />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="30,0,0,0">
+                            <StackPanel.Resources>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="VerticalAlignment" Value="Center"/>
+                                    <Setter Property="FontFamily" Value="微软雅黑"/>
+                                    <Setter Property="FontSize" Value="14"/>
+                                    <Setter Property="Foreground" Value="Black"/>
+                                    <Setter Property="FontWeight" Value="Bold"/>
+                                </Style>
+                            </StackPanel.Resources>
+                            <Book:BreadLine Foreground="{StaticResource NormalColorBrush}"  x:Name="breadLineRoot"/>
+
+                        </StackPanel>
+
+                    </StackPanel>
+                </Grid>
+                
+            </Border>
+
+            <Grid  Grid.Row="2" >
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Border Background="{StaticResource oneRowImageBrush}" Grid.Row="0"/>
+                <Border Background="{StaticResource oneRowImageBrush}" Grid.Row="1"/>
+                <Border Background="{StaticResource oneRowImageBrush}" Grid.Row="2"/>
+                <Border Background="{StaticResource oneRowImageBrush}" Grid.Row="3"/>
+            </Grid>
+
+            <Grid x:Name="gridParent" Grid.Row="2"  Background="Transparent">
+                <Grid.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Click="menuItemUpload_Click" Header="上传文件" >
+                            <MenuItem.Icon>
+                                <Image Width="23" Height="23" Source="pack://application:,,,/Image/Control/Book/Upload.ico"/>
+                            </MenuItem.Icon>
+                        </MenuItem>
+
+                        <MenuItem Click="menuItemFolderCreate_Click" Header="新建文件夹" >
+                            <MenuItem.Icon>
+                                <Image Width="23" Height="23" Source="pack://application:,,,/Image/Control/Book/folder.png"/>
+                            </MenuItem.Icon>
+                        </MenuItem>
+                    </ContextMenu>
+                </Grid.ContextMenu>
+                <!--<Grid.Resources>
+                    <Style TargetType="Book:UCBook">
+                        <Setter Property="Effect">
+                            <Setter.Value>
+                                <DropShadowEffect Direction="320" BlurRadius="6"/>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Grid.Resources>-->
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+            </Grid>
+
+            <Border Grid.Row="3" Visibility="Visible"  BorderThickness="0,1,0,0">
+                <Border.BorderBrush>
+                    <SolidColorBrush Color="Gray" Opacity="0.7"/>
+                </Border.BorderBrush>
+                <Grid x:Name="grid2" >
+                    <Grid.Background>
+                        <SolidColorBrush Color="LightGray"/>
+                    </Grid.Background>
+
+                    <StackPanel HorizontalAlignment="Center" Grid.Column="1" Orientation="Horizontal" Margin="0, 5, 0, 5">
+
+                        <Button x:Name="btnArrowLeft" Background="{StaticResource arrowLeft}" Width="35" Height="25" Style="{StaticResource btnArrowStyle}"/>
+                        <!---->
+                        <TextBox  Text="{Binding PageNow}" Background="Transparent" Foreground="{StaticResource NormalColorBrush}" BorderBrush="Transparent" BorderThickness="0" Width="20" Margin="5, 5, 2, 5"/>
+                       
+                        <Button x:Name="btnArrowRight" Background="{StaticResource arrowRight}" Width="35" Height="25" Style="{StaticResource btnArrowStyle}"/>
+                        <TextBlock Margin="10,0,3,0" Text="第" VerticalAlignment="Center" />
+                        <TextBlock Text="{Binding PageCount}" Foreground="{StaticResource NormalColorBrush}"  VerticalAlignment="Center" Margin="0,0,5,0"/>
+                        <TextBlock Margin="3,0" Text="页" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Grid>
+            </Border>
+        </Grid>
+
+        <!--<Border x:Name="borerChange" Visibility="Collapsed" Grid.Column="1" Background="Transparent">
+        </Border>-->
+        <!--<Button Background="Black" Grid.Column="1" ToolTip="点击切换" RenderTransformOrigin="0.5,0.5"   Cursor="Hand" x:Name="btnPanelVisibilityControl"  Style="{StaticResource btnDisplayStyle3}" Content="隐藏" Width="20"  >
+            -->
+        <!--<Button.RenderTransform>
+                    <RotateTransform x:Name="rotate" Angle="{Binding DisPlayAngle}" />
+                </Button.RenderTransform>-->
+        <!--
+        </Button>-->
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Border BorderBrush="Silver" BorderThickness="0,0,0,1">
+                <Grid >
+                    <Grid.Background>
+                        <SolidColorBrush Color="LightGray"  />
+                    </Grid.Background>
+                    <StackPanel Visibility="Visible" Orientation="Horizontal" Margin="10,0,0,0">
+                        <Button BorderThickness="0,0,10,0" x:Name="btnResourceShare" Content="共 享" Height="32" Style="{StaticResource  btnStyleH22}" Width="70"  Margin="0,0,10,0" Background="{StaticResource brush_ResourceShare}" />
+                        <Button BorderThickness="0,0,10,0" x:Name="btnResourceSend" Content="推 送" Height="32" Style="{StaticResource btnStyleH22}" Width="70" Margin="0,0,10,0" Background="{StaticResource brush_ResourceSend}" />
+
+                    </StackPanel>
+
+                    <StackPanel HorizontalAlignment="Right" Visibility="Visible"  Orientation="Horizontal" Margin="10,0,0,0">
+                        <Button  BorderThickness="0,0,10,0" x:Name="btnResourceDownLoad" Content="下 载" Height="32" Style="{StaticResource btnStyleH22}" Width="70" Margin="0,0,10,0" Background="{StaticResource brush_ResourceDownLoad}" />
+                        <Button BorderThickness="0,0,10,0" x:Name="btnResourceDelete" Content="删 除" Height="32" Style="{StaticResource btnStyleH22}" Width="70" Margin="0,0,10,0" Background="{StaticResource brush_ResourceDelete}" />
+                        <Button BorderThickness="0,0,4,0" x:Name="btnResourceMove" Content="移动到" Height="32" Style="{StaticResource btnStyleH22}" Width="70" Margin="0,0,10,0" Background="{StaticResource brush_ResourceMove}" />
+                        <Button BorderThickness="0,0,6,0" x:Name="btnResourceReName" Content="重命名" Height="32" Style="{StaticResource btnStyleH22}" Width="70" Margin="0,0,10,0" Background="{StaticResource brush_ResourceReName}" />
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+            <Border Grid.Row="1" Margin="4" BorderBrush="Silver" BorderThickness="1">
+                <Grid >
+                    <WindowsFormsHost  x:Name="host" Visibility="Collapsed" Margin="0,10,0,0" >
+                        <form:Panel x:Name="panel"/>
+                    </WindowsFormsHost>
+
+                    <Border    x:Name="borDecorate" Visibility="Visible"   Background="{StaticResource bdImageBrush}">
+
+                    </Border>
+
+                    <Border   x:Name="borContent"  >
+                    </Border>
+                </Grid>
+            </Border>
+        </Grid>
+
+        <Control:Loading  x:Name="loading" Visibility="Collapsed"/>
+    </Grid>
+</Space:SpaceBase>

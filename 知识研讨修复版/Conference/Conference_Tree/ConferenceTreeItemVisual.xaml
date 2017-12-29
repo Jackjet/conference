@@ -1,0 +1,64 @@
+﻿<Common:UserControlBase xmlns:Common="clr-namespace:ConferenceCommon.WPFHelper;assembly=ConferenceCommon"  
+                        
+              x:Class="Conference_Tree.ConferenceTreeItemVisual"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+               xmlns:Microsoft_Windows_Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero" 
+             mc:Ignorable="d"  
+             >
+    <Common:UserControlBase.Resources>
+        <!--消息背景-->
+        <SolidColorBrush x:Key="brush_Message" Opacity="0.7" Color="Snow"/>       
+        <!--标题背景-->
+        <ImageBrush x:Key="brush_Tittle" Opacity="0.7" ImageSource="pack://application:,,,/Image/TittleBG.png"/>
+        <!--标题背景-->
+        <ImageBrush x:Key="brush_Link" Opacity="0.7" ImageSource="pack://application:,,,/Image/Link.png"/>
+
+
+    </Common:UserControlBase.Resources>
+    <Border   CornerRadius="3" SnapsToDevicePixels="true">
+        <DockPanel >
+            <Border x:Name="gridTreeMain"   Margin="3,0"      DockPanel.Dock="Left"   MinWidth="0" MinHeight="0"   >
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid  VerticalAlignment="Center" Margin="-15,0,0,0"  Background="Transparent" SnapsToDevicePixels="False">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="30"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="30"/>
+                            <ColumnDefinition MinWidth="50"/>                           
+                            <ColumnDefinition Width="2"/>
+                        </Grid.ColumnDefinitions>
+
+                        <!--水平的线条-->
+                        <Border Grid.Column="0"   Height="2"  Background="Silver"  Grid.Row="1" >
+
+                        </Border>
+
+                        <Border  Grid.ColumnSpan="5" Opacity="0.5" Grid.RowSpan="3"  Background="SkyBlue"/>
+                       
+                        <Border IsEnabled="True"  Grid.Column="1" Grid.Row="1"  Margin="0,5,10,5" BorderThickness="1" BorderBrush="Silver" Background="{StaticResource brush_Message}"  >
+                            <Grid>
+
+                                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                                    <!--标题-->
+                                    <TextBlock  FontFamily="黑体" FontSize="13.5" MaxHeight="50" Margin="7" FocusVisualStyle="{x:Null}"  Foreground="Black" Background="Transparent" MinWidth="120" MaxWidth="120"    x:Name="txtTittle"  Text="{Binding ACA_Tittle}"  TextWrapping="Wrap"    VerticalAlignment="Center">
+                                    </TextBlock>
+                                </ScrollViewer>                                
+                            </Grid>
+                        </Border>
+                    </Grid>                               
+                </Grid>
+            </Border>
+           
+        </DockPanel>
+    </Border>
+</Common:UserControlBase>

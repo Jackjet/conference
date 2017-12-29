@@ -1,0 +1,94 @@
+﻿<UserControl xmlns:WPFHelper="clr-namespace:ConferenceCommon.WPFHelper;assembly=ConferenceCommon"  x:Class="Conference.View.Chair.ChairView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             >
+    <UserControl.Resources>
+
+
+
+        <!--录播-->
+        <ImageBrush x:Key="brush_Record" ImageSource="pack://application:,,,/Image/View/Chair/Record.png"/>
+
+        <!--门框-->
+        <ImageBrush x:Key="brush_door" ImageSource="pack://application:,,,/Image/View/Chair/door.png"/>
+
+
+
+    </UserControl.Resources>
+    <Grid>
+
+        <!--<TextBlock VerticalAlignment="Center" FontFamily="黑体" FontSize="18" Foreground="Red" HorizontalAlignment="Center"  Text="主 持 人 功 能 正 在 构 建 中 。。。"/>-->
+
+        <TabControl  >
+
+            <TabItem Style="{StaticResource tabitem_style3}" Height="30"  Foreground="{StaticResource NormalColorBrush}" FontSize="14" Header=" 页 面 同 步 ">
+
+                <Grid  >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.7*" />
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <Border BorderBrush="Transparent" Background="{StaticResource Index_lin1}" >
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <!--第一行阴影界限-->
+                                <RowDefinition Height="0.6*"/>
+                            </Grid.RowDefinitions>
+
+
+
+                            <Border BorderBrush="Transparent" Margin="0,0,0,-1"  Grid.Row="1" Background="{StaticResource Index_lin2}"></Border>
+
+                            <Border BorderBrush="Transparent"   Grid.RowSpan="2" >
+                                <StackPanel  VerticalAlignment="Bottom" HorizontalAlignment="Center" Orientation="Horizontal">
+                                    <WPFHelper:NavicateButton x:Name="btnMeet" ViewSelectedItemEnum="Meet" BorderBrush="Silver" BorderThickness="1" Background="{StaticResource brush_Meet}"  FocusVisualStyle="{x:Null}" Content="我 的 会 议" Height="240" Width="260" Margin="0,0,35,0"  Style="{StaticResource btnSyle1}"/>
+                                    <WPFHelper:NavicateButton x:Name="btnTree" ViewSelectedItemEnum="Tree" BorderBrush="Silver" BorderThickness="1" Background="{StaticResource brush_Tree}" FocusVisualStyle="{x:Null}" Content="知 识 树" Height="240" Width="260" Margin="0,0,35,0"  Style="{StaticResource btnSyle1}"/>
+                                    <WPFHelper:NavicateButton x:Name="btnSpace" ViewSelectedItemEnum="Space" BorderBrush="Silver" BorderThickness="1" Background="{StaticResource brush_Space}" FocusVisualStyle="{x:Null}" Content="智 存 空 间" Height="240" Width="260"   Style="{StaticResource btnSyle1}"/>
+                                </StackPanel>
+
+                            </Border>
+
+                        </Grid>
+                    </Border>
+
+                    <Border BorderBrush="Transparent" Grid.Row="1" Background="{StaticResource Index_lin2}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition Height="0.7*"/>
+                            </Grid.RowDefinitions>
+                            <Border BorderBrush="Transparent"  HorizontalAlignment="Center">
+                                <StackPanel Orientation="Horizontal">
+                                    <WPFHelper:NavicateButton x:Name="btnResource" ViewSelectedItemEnum="Resource" BorderBrush="Silver" BorderThickness="1" Background="{StaticResource brush_Resource}" FocusVisualStyle="{x:Null}" Content="共 享 协 作" Height="200" Width="230" Margin="0,0,25,0"  Style="{StaticResource btnSyle1}"/>
+                                    <WPFHelper:NavicateButton x:Name="btnIMM" ViewSelectedItemEnum="IMM" BorderBrush="Silver" BorderThickness="1" Background="{StaticResource brush_IMM}" FocusVisualStyle="{x:Null}" Content="信 息 交 流" Height="200" Width="230" Margin="0,0,25,0"  Style="{StaticResource btnSyle1}"/>
+                                    <WPFHelper:NavicateButton x:Name="btnNote" ViewSelectedItemEnum="PersonNote" BorderBrush="Silver" BorderThickness="1" Background="{StaticResource brush_Note}" FocusVisualStyle="{x:Null}" Content="个 人 笔 记" Height="200" Width="230" Margin="0,0,25,0"  Style="{StaticResource btnSyle1}"/>
+                                    <WPFHelper:NavicateButton x:Name="btnWebBrowser" ViewSelectedItemEnum="WebBrowserView"  BorderThickness="1" Background="{StaticResource brush_Vote}" FocusVisualStyle="{x:Null}" Content="网 络 浏 览" Height="200" Width="230" Style="{StaticResource btnSyle1}"/>
+                                </StackPanel>
+                            </Border>
+                            <Border BorderBrush="Transparent" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top">
+                                <StackPanel Orientation="Horizontal">
+                                    <WPFHelper:NavicateButton x:Name="btn_U_disk" ViewSelectedItemEnum="U_Disk" BorderBrush="Silver" BorderThickness="1" Background="{StaticResource brush_U_disk}" FocusVisualStyle="{x:Null}" Content="U  盘 传 输" Height="165" Width="183" Margin="0,0,20,0"  Style="{StaticResource btnSyle1}"/>
+                                    <WPFHelper:NavicateButton x:Name="btnMeet_Change" ViewSelectedItemEnum="Meet_Change" BorderBrush="Silver" BorderThickness="1" Background="{StaticResource brush_Meet_Change}" FocusVisualStyle="{x:Null}" Content="会 议 切 换" Height="165" Width="183" Margin="0,0,20,0"  Style="{StaticResource btnSyle1}"/>
+                                    <WPFHelper:NavicateButton x:Name="btnChair" ViewSelectedItemEnum="Chair" BorderBrush="Silver" BorderThickness="1" Background="{StaticResource brush_Chair}" FocusVisualStyle="{x:Null}" Content="主 持 功 能" Height="165" Width="183" Margin="0,0,20,0"  Style="{StaticResource btnSyle1}"/>
+                                    <WPFHelper:NavicateButton x:Name="btnStudiom" ViewSelectedItemEnum="Studiom" BorderBrush="Silver" BorderThickness="1" Background="{StaticResource brush_Studiom}" FocusVisualStyle="{x:Null}" Content="中 控 功 能" Height="165" Width="183" Margin="0,0,20,0"  Style="{StaticResource btnSyle1}"/>
+                                    <WPFHelper:NavicateButton x:Name="btnSystemSetting" ViewSelectedItemEnum="SystemSetting" BorderBrush="Silver" BorderThickness="1" Background="{StaticResource brush_Setting}" FocusVisualStyle="{x:Null}" Content="系 统 设 置" Height="165" Width="183" Style="{StaticResource btnSyle1}"/>
+                                </StackPanel>
+                            </Border>
+                        </Grid>
+                    </Border>
+
+                </Grid>
+            </TabItem>
+            <TabItem Style="{StaticResource tabitem_style3}" Foreground="{StaticResource NormalColorBrush}" FontSize="14" Header=" 会 议 现 场 ">
+                <Border Background="AliceBlue">
+                    <Image  x:Name="img" Stretch="Fill"></Image>
+                </Border>
+            </TabItem>                                  
+        </TabControl>
+    </Grid>
+</UserControl>

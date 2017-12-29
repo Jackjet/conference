@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="d5a223e1-26a3-4dec-a0fe-682ed18823c3" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://192.168.1.205/_vti_bin/Revert.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="RevertService.wsdl" MetadataType="Wsdl" ID="1a755aaf-b22d-4b11-aeae-d1a4ac0a6188" SourceId="1" SourceUrl="http://192.168.1.205/_vti_bin/Revert.svc/mex?wsdl" />
+    <MetadataFile FileName="mex.disco" MetadataType="Disco" ID="bce61d64-b90c-459c-8139-bb3f5a688595" SourceId="1" SourceUrl="http://192.168.1.205/_vti_bin/Revert.svc/mex?disco" />
+    <MetadataFile FileName="mex.xsd" MetadataType="Schema" ID="ad4e1f36-29c2-4f95-aff6-e09b2b468da2" SourceId="1" SourceUrl="http://192.168.1.205/_vti_bin/Revert.svc/mex?xsd=xsd1" />
+    <MetadataFile FileName="mex1.xsd" MetadataType="Schema" ID="ee76bf56-edca-41b6-b1af-500b0b2d5193" SourceId="1" SourceUrl="http://192.168.1.205/_vti_bin/Revert.svc/mex?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,806 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{010CD9DE-AA5A-4E92-B7A1-8E76577B4844}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Conference</RootNamespace>
+    <AssemblyName>Conference</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\Users\Administrator\Desktop\tpp\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <AutorunEnabled>true</AutorunEnabled>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>logo1.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>false</GenerateManifests>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ESBasic">
+      <HintPath>bin\x64\Debug\ESBasic.dll</HintPath>
+    </Reference>
+    <Reference Include="Gma.QrCodeNet.Encoding.Net35, Version=0.4.0.0, Culture=neutral, PublicKeyToken=e8a75d24b142be49, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ConferenceCommon\File\Dll\Gma.QrCodeNet.Encoding.Net35.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\x64\Debug\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Expression.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\x64\Debug\Microsoft.Expression.Drawing.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Lync.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\x86\Debug\Microsoft.Lync.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Lync.Controls.Framework">
+      <HintPath>bin\x64\Debug\Microsoft.Lync.Controls.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Lync.Model, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\x64\Debug\Microsoft.Lync.Model.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Lync.Utilities">
+      <HintPath>bin\x64\Debug\Microsoft.Lync.Utilities.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.mshtml, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>bin\x64\Debug\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.PowerPoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>bin\x64\Debug\Microsoft.Office.Interop.PowerPoint.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Word, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>bin\x64\Debug\Microsoft.Office.Interop.Word.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Uc, Version=15.0.4535.1002, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>bin\x64\Debug\Microsoft.Office.Uc.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\x64\Debug\Microsoft.SharePoint.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client.Runtime, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\x64\Debug\Microsoft.SharePoint.Client.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Office, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>bin\x64\Debug\Office.dll</HintPath>
+    </Reference>
+    <Reference Include="OMCS">
+      <HintPath>bin\x64\Debug\OMCS.dll</HintPath>
+    </Reference>
+    <Reference Include="PaintFramework">
+      <HintPath>bin\x64\Debug\PaintFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework.Aero" />
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="ThoughtWorks.QRCode">
+      <HintPath>..\ConferenceCommon\File\Dll\ThoughtWorks.QRCode.dll</HintPath>
+    </Reference>
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="Vlc.DotNet.Core, Version=1.2.0.0, Culture=neutral, PublicKeyToken=84529da31f4eb963, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Conference\Conference\bin\x86\Debug\Vlc.DotNet.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Vlc.DotNet.Core.Interops, Version=1.2.0.0, Culture=neutral, PublicKeyToken=84529da31f4eb963, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Conference\Conference\bin\x86\Debug\Vlc.DotNet.Core.Interops.dll</HintPath>
+    </Reference>
+    <Reference Include="Vlc.DotNet.Wpf, Version=1.2.0.0, Culture=neutral, PublicKeyToken=84529da31f4eb963, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Conference\Conference\bin\x86\Debug\Vlc.DotNet.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+    <Reference Include="WPFToolkit, Version=3.5.40128.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\x64\Debug\WPFToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="WPFVisifire.Charts">
+      <HintPath>bin\x64\Debug\WPFVisifire.Charts.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Common\NetWorkErrTipType.cs" />
+    <Compile Include="Common\EntityTransfer.cs" />
+    <Compile Include="Common\LyncHelper.cs" />
+    <Compile Include="Common\LyncHelper3.cs" />
+    <Compile Include="Common\LyncHelper2.cs" />
+    <Compile Include="Control\ConversationHidenView.xaml.cs">
+      <DependentUpon>ConversationHidenView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Control\DragView\DragTab.xaml.cs">
+      <DependentUpon>DragTab.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Control\DragView\DragTabItem.xaml.cs">
+      <DependentUpon>DragTabItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Control\FileBrowser.xaml.cs">
+      <DependentUpon>FileBrowser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Control\Initializtion_View.xaml.cs">
+      <DependentUpon>Initializtion_View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Control\NetWork_View2.xaml.cs">
+      <DependentUpon>NetWork_View2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Control\NetWork_View.xaml.cs">
+      <DependentUpon>NetWork_View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Control\ShowSelfDeskTopView.xaml.cs">
+      <DependentUpon>ShowSelfDeskTopView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page\MainPage2.cs" />
+    <Compile Include="Page\MainPageBase.cs" />
+    <Compile Include="Page\MainPageBase2.cs" />
+    <Compile Include="Page\MainPageBase3.cs" />
+    <Compile Include="View\Resource\ConversationHost.xaml.cs">
+      <DependentUpon>ConversationHost.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Resource\SharingPanel.xaml.cs">
+      <DependentUpon>SharingPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Chair\ChairView.xaml.cs">
+      <DependentUpon>ChairView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\IMM\QRWindow.xaml.cs">
+      <DependentUpon>QRWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MyConference\MyConferenceView.xaml.cs">
+      <DependentUpon>MyConferenceView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Note\PersonalNote.xaml.cs">
+      <DependentUpon>PersonalNote.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AppcationTool\ApplicationToolView.xaml.cs">
+      <DependentUpon>ApplicationToolView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AppcationTool\AppSyncDataAcceptWindow.xaml.cs">
+      <DependentUpon>AppSyncDataAcceptWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AppcationTool\AppSyncWindow.xaml.cs">
+      <DependentUpon>AppSyncWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ConferenceRoom\ConferenceRoomItem.xaml.cs">
+      <DependentUpon>ConferenceRoomItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ConferenceRoom\ConferenceRoom_View.xaml.cs">
+      <DependentUpon>ConferenceRoom_View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\IMM\ConferenceAudioItem.xaml.cs">
+      <DependentUpon>ConferenceAudioItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\IMM\ConferenceAudio_View.xaml.cs">
+      <DependentUpon>ConferenceAudio_View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Resource\KeyControlView.xaml.cs">
+      <DependentUpon>KeyControlView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Studiom\StudiomView.xaml.cs">
+      <DependentUpon>StudiomView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Tool\ToolCmWindow.xaml.cs">
+      <DependentUpon>ToolCmWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="View\Resource\ConversationM.xaml.cs">
+      <DependentUpon>ConversationM.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Setting\Setting_View.xaml.cs">
+      <DependentUpon>Setting_View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\U_Disk\U_DiskView.xaml.cs">
+      <DependentUpon>U_DiskView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WebBrowser\WebBrowserView.xaml.cs">
+      <DependentUpon>WebBrowserView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WebBrowser\UrlEntity.cs" />
+    <Page Include="Control\ConversationHidenView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Control\DragView\DragTab.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Control\DragView\DragTabItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Control\FileBrowser.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Control\Initializtion_View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Control\NetWork_View2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Control\NetWork_View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Control\ShowSelfDeskTopView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Resource\ConversationHost.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Resource\SharingPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Chair\ChairView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\IMM\QRWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MyConference\MyConferenceView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Note\PersonalNote.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AppcationTool\ApplicationToolView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\AppcationTool\AppSyncDataAcceptWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\AppcationTool\AppSyncWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ConferenceRoom\ConferenceRoomItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ConferenceRoom\ConferenceRoom_View.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="LoginWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Page\Index.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Common\ClientSocket.cs" />
+    <Compile Include="Constant.cs" />
+    <Compile Include="LoginWindow.xaml.cs">
+      <DependentUpon>LoginWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page\Index.xaml.cs">
+      <DependentUpon>Index.xaml</DependentUpon>
+    </Compile>
+    <Page Include="MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Page\MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\IMM\ConferenceAudioItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\IMM\ConferenceAudio_View.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Resource\KeyControlView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Studiom\StudiomView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Tool\ToolCmWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Resource\ConversationM.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Setting\Setting_View.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\U_Disk\U_DiskView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\WebBrowser\WebBrowserView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page\MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <EmbeddedResource Include="File\个人笔记.one">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <None Include="app.manifest" />
+    <None Include="File\InviteFile.pptx" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Other.png" />
+    <Resource Include="Image\SearchBtn.png" />
+    <Resource Include="Image\Upload.ico" />
+    <Resource Include="Image\Upload.png" />
+    <Resource Include="Image\YES.png" />
+    <Resource Include="Image\VoteDelete.png" />
+    <Resource Include="Image\UpdatePersonImg.png" />
+    <Resource Include="Image\unfold.png" />
+    <Resource Include="Image\TxtBG.png" />
+    <Resource Include="Image\TittleBG.png" />
+    <Resource Include="Image\Star.png" />
+    <Resource Include="Image\Search.png" />
+    <Resource Include="Image\Reduction.png" />
+    <Resource Include="Image\Reduce.png" />
+    <Resource Include="Image\Orange.png" />
+    <Resource Include="Image\No.png" />
+    <Resource Include="Image\View\Resource\Postil.png" />
+    <Resource Include="Image\View\Setting\EducationMode.png" />
+    <Resource Include="Image\View\Setting\NormalMode.png" />
+    <Resource Include="Image\View\Setting\SimpleMode.png" />
+    <Resource Include="Image\View\Setting\UpdatePersonImg.png" />
+    <Resource Include="Image\View\Resource\PPTLeft.png" />
+    <Resource Include="Image\View\Resource\PPTRight.png" />
+    <Resource Include="Image\View\Space\Left.png" />
+    <Resource Include="Image\View\Space\Right.png" />
+    <Resource Include="Page\Page.txt" />
+    <Resource Include="Image\View\Tree\fold.png" />
+    <Resource Include="Image\View\Tree\unfold.png" />
+    <Resource Include="Image\View\Resource\touying.png" />
+    <Resource Include="Image\View\Resource\projection.png" />
+    <Resource Include="Image\MainWindow\Mini.png" />
+    <Resource Include="Image\View\Resource\MobilePhone.png" />
+    <Resource Include="Image\View\Note\PersonNoteBG.png" />
+    <Resource Include="Image\View\Tree\Link.png" />
+    <Resource Include="Image\View\Space\Send.png" />
+    <Resource Include="Image\View\Space\Upload.png" />
+    <Resource Include="Image\View\Space\DownLoad.png" />
+    <Resource Include="Image\View\Space\Delete.png" />
+    <Resource Include="Image\View\Space\Move.png" />
+    <Resource Include="Image\View\Space\ReName.png" />
+    <Resource Include="Image\View\Space\Share.png" />
+    <Resource Include="Image\View\Setting\AllClose.png" />
+    <Resource Include="Image\View\Setting\AllVersionUpdate.png" />
+    <Resource Include="Image\View\Setting\DeskSwitch.png" />
+    <Resource Include="Image\View\Setting\SoftUpdate.png" />
+    <Resource Include="Temp\TextFile1.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Image\TypeImage\ape.png" />
+    <Resource Include="Image\TypeImage\doc.png" />
+    <Resource Include="Image\TypeImage\flv.png" />
+    <Resource Include="Image\TypeImage\htm.png" />
+    <Resource Include="Image\TypeImage\html.png" />
+    <Resource Include="Image\TypeImage\mov.png" />
+    <Resource Include="Image\TypeImage\rmvb.png" />
+    <Resource Include="Image\TypeImage\swf.png" />
+    <Resource Include="Image\TypeImage\wmv.png" />
+    <Resource Include="Image\TypeImage\xls.png" />
+    <Resource Include="Image\View\Room\MeetRoom.png" />
+    <Resource Include="Image\View\Room\MeetRoom2.png" />
+    <Resource Include="Image\View\Room\MeetRoomSelect.png" />
+    <Resource Include="Image\Control\Waiting.png" />
+    <Resource Include="Image\View\Resource\DeskShare.png" />
+    <Resource Include="Image\View\Resource\Whiteboard.png" />
+    <Resource Include="Image\View\Resource\U_Resource.png" />
+    <Resource Include="Image\View\Resource\btnFullScreen.png" />
+    <Resource Include="Image\View\Resource\btnFullScreen2.png" />
+    <Resource Include="Image\TypeImage\csv.png" />
+    <Resource Include="Image\View\Chair\SeatDown.png" />
+    <Resource Include="Image\View\Chair\SeatLeft.png" />
+    <Resource Include="Image\View\Chair\SeatRight.png" />
+    <Resource Include="Image\View\Chair\SeatUp.png" />
+    <Resource Include="Image\TypeImage\ppt.png" />
+    <Resource Include="Image\View\Chair\door.png" />
+    <Resource Include="Image\View\Chair\Annular.png" />
+    <Resource Include="Image\View\Chair\record.png" />
+    <Resource Include="Image\View\Tree\TittleBG.png" />
+    <Resource Include="Image\View\Tree\Enlarge.png" />
+    <Resource Include="Image\View\Tree\Reduce.png" />
+    <Resource Include="Image\View\Tree\Reduction.png" />
+    <Resource Include="Image\View\Studiom\btnRecordDirection.png" />
+    <Resource Include="Image\View\Studiom\btnZoomLarger.png" />
+    <Resource Include="Image\View\Studiom\btnZoomPause.png" />
+    <Resource Include="Image\View\Studiom\btnZoomSmaller.png" />
+    <Resource Include="Image\View\Studiom\btnPower1.png" />
+    <Resource Include="Image\View\Studiom\btnPower2.png" />
+    <Resource Include="Image\View\Studiom\btnLight.png" />
+    <Resource Include="Image\View\Studiom\btnCo2.png" />
+    <Resource Include="Image\View\Studiom\btnHumprity.png" />
+    <Resource Include="Image\View\Studiom\btnPm.png" />
+    <Resource Include="Image\View\Studiom\btnTemperature.png" />
+    <Resource Include="Image\View\Tree\TxtBG.png" />
+    <Resource Include="Image\View\IMM\MeetInt.png" />
+    <Resource Include="Image\View\IMM\Record.png" />
+    <Resource Include="Image\View\IMM\Submit.png" />
+    <Resource Include="Image\View\IMM\Transfer.png" />
+    <Resource Include="Image\View\IMM\AudioPlay.png" />
+    <Resource Include="Image\View\IMM\AudioMessage.png" />
+    <Resource Include="Image\View\Setting\ImageUPload.png" />
+    <Resource Include="Image\View\Setting\tool.png" />
+    <Resource Include="Image\MainWindow\Reflesh.png" />
+    <Resource Include="logo1.ico" />
+    <Resource Include="Image\MainWindow\MainWindowLogo.png" />
+    <Resource Include="Image\View\Tree\Search.png" />
+    <Resource Include="Image\View\Tree\Comment.png" />
+    <Resource Include="Image\View\Tree\Add.png" />
+    <Resource Include="Image\View\Tree\VoteDelete.png" />
+    <Resource Include="Image\View\Tree\btnAudioDelete.png" />
+    <Resource Include="Image\View\Tree\YES.png" />
+    <Resource Include="Image\View\Tree\No.png" />
+    <Resource Include="Image\View\Tree\Star.png" />
+    <Resource Include="Image\View\IMM\btnAudioDelete.png" />
+    <Resource Include="Image\View\IMM\btnAudioPlay.png" />
+    <Resource Include="Image\View\IMM\Ring.png" />
+    <Resource Include="Image\View\Setting\tab_Video.png" />
+    <Resource Include="Image\View\Setting\tab_Audio.png" />
+    <Resource Include="Image\View\Setting\tab_Normal.png" />
+    <Resource Include="Image\View\AppcationTool\AppSync.png" />
+    <Resource Include="Image\View\AppcationTool\Calculator.png" />
+    <Resource Include="Image\View\AppcationTool\notes.png" />
+    <Resource Include="Image\View\AppcationTool\Internet.png" />
+    <Resource Include="Image\View\Space\bg3.png" />
+    <Resource Include="Image\Control\Book\Upload.ico" />
+    <Resource Include="Image\Control\Book\Other.png" />
+    <Resource Include="Image\Control\Book\SearchBtn.png" />
+    <Resource Include="Image\Control\Book\DeskShare.png" />
+    <Resource Include="Image\Control\Book\Download.png" />
+    <Resource Include="Image\Control\Book\delete.ico" />
+    <Resource Include="Image\Control\Book\FileShare.jpg" />
+    <Resource Include="Image\Control\Book\ArrowSelect.png" />
+    <Resource Include="Image\App\bg3.png" />
+    <Resource Include="Image\App\Resource1.png" />
+    <Resource Include="Image\App\Tool1.png" />
+    <Resource Include="Image\App\IMM1.png" />
+    <Resource Include="Image\App\Note1.png" />
+    <Resource Include="Image\App\Vote1.png" />
+    <Resource Include="Image\App\Chair1.png" />
+    <Resource Include="Image\App\Meet1.png" />
+    <Resource Include="Image\App\Meet_Change1.png" />
+    <Resource Include="Image\App\Setting1.png" />
+    <Resource Include="Image\App\Space1.png" />
+    <Resource Include="Image\App\Studiom1.png" />
+    <Resource Include="Image\App\Tree1.png" />
+    <Resource Include="Image\App\U_Disk1.png" />
+    <Resource Include="Image\App\Chair2.png" />
+    <Resource Include="Image\App\IMM2.png" />
+    <Resource Include="Image\App\Meet2.png" />
+    <Resource Include="Image\App\Meet_Change2.png" />
+    <Resource Include="Image\App\Note2.png" />
+    <Resource Include="Image\App\Resource2.png" />
+    <Resource Include="Image\App\Setting2.png" />
+    <Resource Include="Image\App\Space2.png" />
+    <Resource Include="Image\App\Studiom2.png" />
+    <Resource Include="Image\App\Tool2.png" />
+    <Resource Include="Image\App\Tree2.png" />
+    <Resource Include="Image\App\U_Disk2.png" />
+    <Resource Include="Image\App\Vote2.png" />
+    <EmbeddedResource Include="File\logo1.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <Resource Include="Image\MainWindow\KeyBoard.png" />
+    <Resource Include="Image\MainWindow\Index.png" />
+    <EmbeddedResource Include="File\PaintFramework.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <Resource Include="Image\Control\Book\BookShell2.png" />
+    <EmbeddedResource Include="File\会议纪要.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <Resource Include="Image\App\blue.png" />
+    <Resource Include="Image\App\Orange.png" />
+    <Resource Include="Image\Control\Book\BookSelected.png" />
+    <Resource Include="Image\Add.png" />
+    <Resource Include="Image\blue.png" />
+    <Resource Include="Image\btnAudioDelete.png" />
+    <Resource Include="Image\Comment.png" />
+    <Resource Include="Image\Enlarge.png" />
+    <Resource Include="Image\fold.png" />
+    <Resource Include="Image\Link.png" />
+    <Resource Include="Image\ArrowSelect.png" />
+    <Resource Include="Image\BookSelected.png" />
+    <Resource Include="Image\BookShell.png" />
+    <Resource Include="Image\BookShell2.png" />
+    <Resource Include="Image\BookShell3.png" />
+    <Resource Include="Image\DaoHang.png" />
+    <Resource Include="Image\delete.ico" />
+    <Resource Include="Image\DeskShare.png" />
+    <Resource Include="Image\Download.png" />
+    <Resource Include="Image\FileShare.jpg" />
+    <Resource Include="Image\folder.png" />
+    <Content Include="Image\MainWindow\logo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Image\Control\Book\folder.png" />
+    <Resource Include="Image\Control\Book\Upload.png" />
+    <Resource Include="Image\Control\Book\BookShell.png" />
+    <Resource Include="Image\Control\Book\BookShell3.png" />
+    <Resource Include="Image\Control\Book\DaoHang.png" />
+    <Resource Include="Image\TypeImage\folder.png" />
+    <Resource Include="Image\TypeImage\avi.png" />
+    <Resource Include="Image\TypeImage\bmp.png" />
+    <Resource Include="Image\TypeImage\docx.png" />
+    <Resource Include="Image\TypeImage\gif.png" />
+    <Resource Include="Image\TypeImage\ico.png" />
+    <Resource Include="Image\TypeImage\jpg.png" />
+    <Resource Include="Image\TypeImage\mp3.png" />
+    <Resource Include="Image\TypeImage\mp4.png" />
+    <Resource Include="Image\TypeImage\mpg.png" />
+    <Resource Include="Image\TypeImage\one.png" />
+    <Resource Include="Image\TypeImage\png.png" />
+    <Resource Include="Image\TypeImage\pptx.png" />
+    <Resource Include="Image\TypeImage\rar.png" />
+    <Resource Include="Image\TypeImage\record.png" />
+    <Resource Include="Image\TypeImage\txt.png" />
+    <Resource Include="Image\TypeImage\wav.png" />
+    <Resource Include="Image\TypeImage\wma.png" />
+    <Resource Include="Image\TypeImage\xlsx.png" />
+    <Resource Include="Image\TypeImage\xlx.png" />
+    <Resource Include="Image\TypeImage\XML.png" />
+    <Resource Include="Image\TypeImage\zip.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ConferenceCommon\ConferenceCommon.csproj">
+      <Project>{fae862fb-9cdb-4d93-af95-8728ea8a9fd8}</Project>
+      <Name>ConferenceCommon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ConferenceModel\ConferenceModel.csproj">
+      <Project>{f5de4d04-1e2f-4f4b-aea9-42ff01b78b32}</Project>
+      <Name>ConferenceModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ConferenceWebCommon\ConferenceWebCommon.csproj">
+      <Project>{188e312f-5daa-4432-a784-97243e68d9f6}</Project>
+      <Name>ConferenceWebCommon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Conference_Space\Conference_Space.csproj">
+      <Project>{75a9f53b-c86c-4866-8890-ba61a73f05a4}</Project>
+      <Name>Conference_Space</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Conference_Tree\Conference_Tree.csproj">
+      <Project>{fff26b51-79c4-4f1b-b566-0fb176264efa}</Project>
+      <Name>Conference_Tree</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Studiom_Model\Studiom_Model.csproj">
+      <Project>{5eadb99a-5c09-4600-9365-1e5a1189708d}</Project>
+      <Name>Studiom_Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\LoginWindow\yezi2.png" />
+    <Resource Include="Image\LoginWindow\yezi3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\LoginWindow\BG_Login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Index\Chair.jpg" />
+    <Resource Include="Image\Index\IMM.jpg" />
+    <Resource Include="Image\Index\Meet.png" />
+    <Resource Include="Image\Index\Meet_Change.jpg" />
+    <Resource Include="Image\Index\Note.jpg" />
+    <Resource Include="Image\Index\Resource.jpg" />
+    <Resource Include="Image\Index\Setting.jpg" />
+    <Resource Include="Image\Index\Space.png" />
+    <Resource Include="Image\Index\Studiom.jpg" />
+    <Resource Include="Image\Index\Tree.png" />
+    <Resource Include="Image\Index\U_disk.jpg" />
+    <Resource Include="Image\Index\Vote.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\MainWindow\Exit.png" />
+    <Resource Include="Image\MainWindow\Head.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Image\MainPage\" />
+    <Folder Include="Image\View\Tool\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 4.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

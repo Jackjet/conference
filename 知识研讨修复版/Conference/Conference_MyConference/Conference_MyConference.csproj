@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B4DAAC24-8A2C-45A8-9A83-4D66CD9076D4}</ProjectGuid>
+    <OutputType>library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Conference_MyConference</RootNamespace>
+    <AssemblyName>Conference_MyConference</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationFramework.Aero" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="SeatPanelBase.cs" />
+    <Compile Include="SeatPanel_Ten.xaml.cs">
+      <DependentUpon>SeatPanel_Ten.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SeatPanel.xaml.cs">
+      <DependentUpon>SeatPanel.xaml</DependentUpon>
+    </Compile>
+    <Page Include="ConferenceRoom_View.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ConferenceRoomItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MyConferenceView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="Common\MyConferenceCodeEnterEntity.cs" />
+    <Compile Include="ConferenceRoomItem.xaml.cs">
+      <DependentUpon>ConferenceRoomItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ConferenceRoom_View.xaml.cs">
+      <DependentUpon>ConferenceRoom_View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyConferenceView.xaml.cs">
+      <DependentUpon>MyConferenceView.xaml</DependentUpon>
+    </Compile>
+    <Page Include="SeatPanel_Ten.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SeatPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ConferenceCommon\ConferenceCommon.csproj">
+      <Project>{fae862fb-9cdb-4d93-af95-8728ea8a9fd8}</Project>
+      <Name>ConferenceCommon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ConferenceModel\ConferenceModel.csproj">
+      <Project>{f5de4d04-1e2f-4f4b-aea9-42ff01b78b32}</Project>
+      <Name>ConferenceModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ConferenceWebCommon\ConferenceWebCommon.csproj">
+      <Project>{188e312f-5daa-4432-a784-97243e68d9f6}</Project>
+      <Name>ConferenceWebCommon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Studiom_Model\Studiom_Model.csproj">
+      <Project>{5eadb99a-5c09-4600-9365-1e5a1189708d}</Project>
+      <Name>Studiom_Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Annular.png" />
+    <Resource Include="Image\door.png" />
+    <Resource Include="Image\record.png" />
+    <Resource Include="Image\SeatDown.png" />
+    <Resource Include="Image\SeatLeft.png" />
+    <Resource Include="Image\SeatRight.png" />
+    <Resource Include="Image\SeatUp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\MeetRoom.png" />
+    <Resource Include="Image\MeetRoom2.png" />
+    <Resource Include="Image\MeetRoomSelect.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

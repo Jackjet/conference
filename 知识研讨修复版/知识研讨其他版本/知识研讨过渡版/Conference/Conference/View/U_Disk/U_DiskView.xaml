@@ -1,0 +1,11 @@
+﻿<UserControl x:Class="Conference.View.U_Disk.U_DiskView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <TextBlock VerticalAlignment="Center" FontFamily="黑体" FontSize="18" Foreground="Red" HorizontalAlignment="Center"  Text="U 盘 传 输 正 在 构 建 中 。。。"/>
+    </Grid>
+</UserControl>

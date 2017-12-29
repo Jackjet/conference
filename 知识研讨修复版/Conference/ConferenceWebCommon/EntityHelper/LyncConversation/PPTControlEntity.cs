@@ -1,0 +1,21 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace ConferenceWebCommon.EntityHelper.LyncConversation
+{
+     [Serializable]
+    public class PPTControlEntity
+    {
+        /// <summary>
+        /// ppt控制者
+        /// </summary>
+        public string Controler { get; set; }
+
+        /// <summary>
+        /// 1为左，2为右
+        /// </summary>
+        public int Control_Direction { get; set; }
+    }
+}

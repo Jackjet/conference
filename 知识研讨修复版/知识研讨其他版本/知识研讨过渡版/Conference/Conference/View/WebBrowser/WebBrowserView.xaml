@@ -1,0 +1,44 @@
+﻿<Common:UserControlBase xmlns:Common="clr-namespace:ConferenceCommon.WPFHelper;assembly=ConferenceCommon"  
+                        x:Class="Conference.View.WebBrowser.WebBrowserView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:form="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
+             mc:Ignorable="d" 
+              d:DesignHeight="300" d:DesignWidth="1000"
+            >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <!--<Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>-->
+        <Border Margin="10,0,0,0" BorderThickness="0,0,0,1" BorderBrush="Black">
+            <Grid>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Grid.Column="0">
+                    <TextBox VerticalContentAlignment="Center"  Height="26" Width="200"  x:Name="txtInput" />
+                    <Button x:Name="btnNavicate" Content=" 确 定 " Style="{StaticResource  btnStyleH4}" Height="28" Width="50" Background="{StaticResource brush_Blue}" Foreground="White" Margin="5,0,0,0" />
+                    <Button x:Name="btnShare" Content=" 演 示 "  Style="{StaticResource  btnStyleH4}" Height="28" Width="50" Background="{StaticResource brush_Blue}" Foreground="White" Margin="5,0,0,0" />
+
+                    <Button x:Name="btnUp" Margin="15,0,0,0"  Content="上一页" Style="{StaticResource  btnStyleH4}" Foreground="White"  Background="{StaticResource brush_Blue}" Height="28" Width="50"/>
+                    <Button x:Name="btnNext" Margin="15,0,0,0"  Content="下一页" Style="{StaticResource  btnStyleH4}" Foreground="White"  Background="{StaticResource brush_Blue}" Height="28" Width="50"/>
+
+                    <Button x:Name="btnHome" Margin="15,0,0,0"  Content=" 主 页 " Style="{StaticResource  btnStyleH4}" Foreground="White"  Background="{StaticResource brush_Blue}" Height="28" Width="50"/>
+                    <Button x:Name="btnBaidu" Margin="15,0,0,0"  Content=" 百 度 " Style="{StaticResource  btnStyleH4}" Foreground="White"  Background="{StaticResource brush_Blue}" Height="28" Width="50"/>
+                </StackPanel>   
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="0">
+                    <Button Visibility="Visible" x:Name="btnCollection" Content=" 收 藏 " Style="{StaticResource  btnStyleH4}" Height="28" Width="50" Background="{StaticResource brush_Blue}" Foreground="White" Margin="30,0,0,0" />
+                    <ComboBox Visibility="Visible" DisplayMemberPath="UrlName" Height="26"  SelectedItem="{Binding SelectedUlEntity}" ItemsSource="{Binding UrlEntityList}" x:Name="btnCmb"  Width="200" Margin="10,0,0,0"/>
+                    <Button x:Name="btnUrlRemove" Content=" 移 除 " Style="{StaticResource  btnStyleH4}" Height="28" Width="50" Background="{StaticResource brush_Blue}" Foreground="White" Margin="5,0,0,0" />
+                </StackPanel>
+            </Grid>
+        </Border>
+        <WindowsFormsHost Grid.Row="1" >
+            <form:WebBrowser x:Name="webBrowser" />
+        </WindowsFormsHost>            
+    </Grid>
+</Common:UserControlBase>

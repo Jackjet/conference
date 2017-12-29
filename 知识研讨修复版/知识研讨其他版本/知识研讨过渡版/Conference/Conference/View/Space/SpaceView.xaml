@@ -1,0 +1,51 @@
+﻿<UserControl xmlns:Space="clr-namespace:Conference.View.Space"  x:Class="Conference.View.Space.SpaceView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <Style x:Key="btnSpaceStyle" TargetType="Button">
+            <Style.Setters>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="Transparent">
+                                <TextBlock  VerticalAlignment="Center" Foreground="{StaticResource NormalColorBrush}" FontSize="18" FontFamily="黑体" FontWeight="Bold"  Text="{TemplateBinding Content}"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style.Setters>
+        </Style>
+
+        <Style x:Key="btnSpaceStyleSelected" TargetType="Button">
+            <Style.Setters>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="Transparent" BorderBrush="Orange" Margin="0,0,0,-3" BorderThickness="0,0,0,4">
+                                <TextBlock Foreground="{StaticResource NormalColorBrush}" VerticalAlignment="Center"  FontSize="18"  FontFamily="黑体" FontWeight="Bold"  Text="{TemplateBinding Content}"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style.Setters>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        
+
+        <Border x:Name="borMain" >
+            
+        </Border>
+
+        <Border Height="40" BorderBrush="White"  BorderThickness="0,0,0,1" VerticalAlignment="Top" >
+            <StackPanel  Orientation="Horizontal">
+                <Button  Style="{StaticResource btnSpaceStyleSelected}" Height="35"  x:Name="btnMeetSpace"  Content=" 会 议 空 间 "/>
+                <Button Style="{StaticResource btnSpaceStyle}" Height="35" Margin="10,0,0,0" x:Name="btnPersonalSpace"  Content=" 个 人 空 间 "/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>
